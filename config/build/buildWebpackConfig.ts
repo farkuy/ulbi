@@ -10,6 +10,13 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     return {
         mode: mode,
         entry: paths.entry,
+        devServer: {
+            static: {
+                directory: path.join(__dirname, 'public'),
+            },
+            compress: true,
+            port: 9000,
+        },
         output: {
             filename: '[name].[contenthash].js',
             path: paths.build,
