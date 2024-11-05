@@ -1,0 +1,6 @@
+@forward "reset";
+@forward "variables/global";
+
+.app {
+    font: var(--font-m);
+}
