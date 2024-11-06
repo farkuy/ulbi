@@ -4,12 +4,13 @@ import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import {MainePageLazy} from "./pages/MainePage/MainePageLazy";
 import {AboutPageLazy} from "./pages/AboutPage/AboutPageLazy";
 import useTheme from "./theme/useTheme";
+import {classNames} from "./halpers/classNames/classNames";
 
 const App = () => {
     const {theme, toggleTheme} = useTheme();
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', { hovered: true, disabled: false }, [theme])}>
             <button onClick={toggleTheme}>клик</button>
             <BrowserRouter>
                 <Link to={'/'}>Maine</Link>
