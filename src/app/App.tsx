@@ -1,10 +1,10 @@
 import React, {Suspense} from 'react';
 import './styles/index.scss'
 import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
-import {MainePageLazy} from "./pages/MainePage/MainePageLazy";
-import {AboutPageLazy} from "./pages/AboutPage/AboutPageLazy";
-import useTheme from "./theme/useTheme";
-import {classNames} from "./halpers/classNames/classNames";
+import {MainePageLazy} from "pages/MainePage/MainePageLazy";
+import {AboutPageLazy} from "pages/AboutPage/AboutPageLazy";
+import useTheme from "./providers/ThemeProviders/lib/useTheme";
+import {classNames} from "halpers/classNames/classNames";
 
 const App = () => {
     const {theme, toggleTheme} = useTheme();
