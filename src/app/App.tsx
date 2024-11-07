@@ -1,6 +1,6 @@
 import React, {Suspense} from 'react';
 import './styles/index.scss'
-import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
+import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import {MainePageLazy} from "pages/MainePage/MainePageLazy";
 import {AboutPageLazy} from "pages/AboutPage/AboutPageLazy";
 import useTheme from "./providers/ThemeProviders/lib/useTheme";
@@ -12,7 +12,7 @@ const App = () => {
     return (
         <div className={classNames('app', { hovered: true, disabled: false }, [theme])}>
             <button onClick={toggleTheme}>клик</button>
-            <BrowserRouter>
+            <Router>
                 <Link to={'/'}>Maine</Link>
                 <Link to={'/about'}>About</Link>
                 <Suspense fallback={<div>Loading...</div>}>
@@ -21,7 +21,7 @@ const App = () => {
                         <Route path="/about" element={<AboutPageLazy />} />
                     </Routes>
                 </Suspense>
-            </BrowserRouter>
+            </Router>
         </div>
     );
 };
