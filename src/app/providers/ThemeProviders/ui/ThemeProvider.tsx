@@ -1,5 +1,5 @@
 import React, {FC, useMemo, useState} from 'react';
-import {Theme, ThemeContext} from "./ThemeContext";
+import {Theme, ThemeContext} from "../lib/ThemeContext";
 
 const MAINE_THEME = localStorage.getItem('THEME_TEAM') as Theme|| Theme.LIGHT
 
