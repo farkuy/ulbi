@@ -7,7 +7,7 @@ import AppRouter from "./router/ui/AppRouter";
 import {Navbar} from "widgets/ui/Navbar";
 
 const App = () => {
-    const {theme, toggleTheme} = useTheme();
+    const {theme} = useTheme();
 
     return (
         <div className={classNames('app', { hovered: true, disabled: false }, [theme])}>
@@ -15,7 +15,6 @@ const App = () => {
                 <Navbar/>
                 <AppRouter/>
             </Router>
-            <button onClick={toggleTheme}>клик</button>
         </div>
     );
 };

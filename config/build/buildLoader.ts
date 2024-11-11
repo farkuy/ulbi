@@ -7,6 +7,11 @@ import path from "path";
 export function buildLoader(options: BuildOptions):webpack.RuleSetRule[] {
     const { isDev } = options;
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
     const cssLoader = {
         test: /\.s[ac]ss$/i,
         use: [
@@ -31,6 +36,7 @@ export function buildLoader(options: BuildOptions):webpack.RuleSetRule[] {
     }
 
     return [
+        svgLoader,
         typeScriptLoader,
         cssLoader,
     ]
