@@ -14,8 +14,10 @@ const App = () => {
         <div className={classNames('app', { hovered: true, disabled: false }, [theme])}>
             <Router>
                 <Navbar/>
-                <Sidebar/>
-                <AppRouter/>
+                <div className='core'>
+                    <Sidebar/>
+                    <AppRouter/>
+                </div>
             </Router>
         </div>
     );

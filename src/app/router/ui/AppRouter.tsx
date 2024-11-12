@@ -5,15 +5,18 @@ import {routerConfig} from "shared/config";
 const AppRouter = () => {
     return (
         <Suspense fallback={<div>Loading...</div>}>
-            <Routes>
-                {routerConfig.map( (element) =>
-                    <Route
-                        key={element.path}
-                        path={element.path}
-                        element={element.children}
-                    />
-                )}
-            </Routes>
+            <div className='content'>
+                <Routes>
+                    {routerConfig.map( (element) =>
+                        <Route
+                            key={element.path}
+                            path={element.path}
+                            element={element.children}
+                        />
+                    )}
+                </Routes>
+            </div>
+
         </Suspense>
     );
 };
