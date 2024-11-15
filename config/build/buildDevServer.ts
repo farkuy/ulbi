@@ -7,6 +7,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     return {
         open: true,
         port: port,
-        historyApiFallback: true
+        historyApiFallback: true,
+        hot: true,
     }
 }
