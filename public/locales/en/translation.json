@@ -2,5 +2,6 @@
   "SHOW": "Show",
   "MAINE": "Maine",
   "ABOUT_US": "About us",
-  "LANGUAGE": "English"
+  "LANGUAGE": "English",
+  "LOADING": 'Loading',
 }

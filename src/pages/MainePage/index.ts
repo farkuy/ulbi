@@ -1,2 +1,1 @@
-export {MainePageLazy as MainePage} from "./ui/MainePageLazy"
-
+export { MainePageLazy as MainePage } from './ui/MainePageLazy';

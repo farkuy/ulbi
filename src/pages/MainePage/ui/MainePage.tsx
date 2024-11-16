@@ -1,13 +1,13 @@
 import React from 'react';
-import {useTranslation} from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
-const MainePage = () => {
-    const {t} = useTranslation();
+function MainePage() {
+    const { t } = useTranslation();
     return (
         <div>
-            {t("MAINE")}
+            {t('MAINE')}
         </div>
     );
-};
+}
 
 export default MainePage;
