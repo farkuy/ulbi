@@ -1,12 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function MainePage() {
     const { t } = useTranslation();
-
-    useEffect(() => {
-        throw new Error();
-    }, []);
 
     return (
         <div>
