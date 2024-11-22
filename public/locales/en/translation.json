@@ -1,9 +1,11 @@
 {
-  "SHOW": "Show",
-  "MAINE": "Maine",
-  "ABOUT_US": "About us",
-  "LANGUAGE": "English",
-  "LOADING": "Loading",
-  "NOT_FOUND": "Page not found",
-  "ERROR": "Error"
+  "Тестовый пример": "Test example",
+  "Перевод": "Translate",
+  "Главная страница": "Main page",
+  "Язык": "English",
+  "новый перевод": "новый перевод",
+  "Страница не найдена": "Page not found",
+  "Произошла непредвиденная ошибка": "Произошла непредвиденная ошибка",
+  "Обновить страницу": "Обновить страницу",
+  "throw error": "throw error"
 }

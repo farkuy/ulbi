@@ -1,20 +1,20 @@
-@use "reset" as *;
-@use "variables/global" as *;
-@use "themes/dark" as *;
-@use "themes/light" as *;
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/dark";
 
 .app {
     font: var(--font-m);
-    background-color: var(--bg-color);
+    background: var(--bg-color);
     color: var(--primary-color);
     min-height: 100vh;
 }
 
-.core {
+.content-page {
     display: flex;
 }
 
-.content {
+.page-wrapper {
     flex-grow: 1;
     padding: 20px;
 }
