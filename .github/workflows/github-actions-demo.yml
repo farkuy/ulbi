@@ -2,9 +2,9 @@ name: lint, test, build
 run-name: ${{ github.actor }} мы разными схемами должны обмануть эту гребаную 🚀🚀🚀🚀. Мы не рискуем, мы не входим в азарт.
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
