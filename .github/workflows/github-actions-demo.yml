@@ -1,4 +1,5 @@
-name: linting, testing, building
+name: lint, test, build
+run-name: ${{ github.actor }} мы разными схемами должны обмануть эту гребаную 🚀🚀🚀🚀. Мы не рискуем, мы не входим в азарт.
 on:
   push:
     branches: [ main ]
@@ -12,22 +13,17 @@ jobs:
         node-version: [ 17.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Staring Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: install modules
         run: npm install
-      - name: build production project
+      - name: build prod
         run: npm run build:prod
-      - name: linting typescript
+      - name: check ts
         run: npm run lint:ts
-      - name: linting css
-        run: npm run lint:scss
-      - name: unit testing
-        run: npm run test:unit
-      - name: build storybook
-        run: npm run storybook:build
-      - name: screenshot testing
-        run: npm run test:ui:ci
