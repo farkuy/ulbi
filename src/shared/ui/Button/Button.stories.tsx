@@ -50,22 +50,22 @@ BackgroundThemeInverted.args = {
     theme: ButtonTheme.BACKGROUND_INVERTED,
 };
 
-export const SquareM = Template.bind({});
-SquareM.args = {
+export const SizeM = Template.bind({});
+SizeM.args = {
     children: 'Text',
-    square: ButtonSize.M,
+    size: ButtonSize.M,
 };
 
-export const SquareL = Template.bind({});
-SquareL.args = {
+export const SizeL = Template.bind({});
+SizeL.args = {
     children: 'Text',
-    square: ButtonSize.L,
+    size: ButtonSize.L,
 };
 
-export const SquareXl = Template.bind({});
-SquareXl.args = {
+export const SizeXl = Template.bind({});
+SizeXl.args = {
     children: 'Text',
-    square: ButtonSize.XL,
+    size: ButtonSize.XL,
 };
 
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
