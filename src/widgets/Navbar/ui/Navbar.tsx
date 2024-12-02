@@ -25,6 +25,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 {t('auth')}
             </Button>
             <Modal isOpen={isAuthModal} closeModal={() => setIsAuthModal(false)}>
+                {/* eslint-disable-next-line max-len */}
                 {t('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi corporis dolore facilis quis saepe?')}
             </Modal>
         </div>
