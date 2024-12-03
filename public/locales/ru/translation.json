@@ -11,5 +11,7 @@
   "Главная": "Главная",
   "О сайте": "О сайте",
   "TOOGLE": "TOOGLE",
-  "TOGGLE": "TOGGLE"
+  "TOGGLE": "TOGGLE",
+  "inc": "inc",
+  "dec": "dec"
 }
