@@ -5,8 +5,8 @@ import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;
-    isOpen: boolean;
-    closeModal: () => void;
+    isOpen?: boolean;
+    closeModal?: () => void;
 }
 
 export const Modal:FC<ModalProps> = (props) => {
