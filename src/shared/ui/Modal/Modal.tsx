@@ -7,11 +7,12 @@ interface ModalProps {
     className?: string;
     isOpen?: boolean;
     closeModal?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal:FC<ModalProps> = (props) => {
     const {
-        isOpen, closeModal, className, children,
+        isOpen, closeModal, className, children, lazy,
     } = props;
 
     const mods: Record<string, boolean> = {
@@ -19,19 +20,20 @@ export const Modal:FC<ModalProps> = (props) => {
     };
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeModal();
-        }
+        if (e.key === 'Escape') closeModal();
     }, [closeModal]);
 
     useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown);
-        }
+        if (isOpen) window.addEventListener('keydown', onKeyDown);
+
         return () => {
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
+
+    if (lazy && !isOpen) {
+        return null;
+    }
 
     return (
         <Portal>
