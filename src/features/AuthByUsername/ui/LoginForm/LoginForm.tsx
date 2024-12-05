@@ -15,8 +15,8 @@ export const LoginForm:FC<LoginFormProps> = (props) => {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Input value={login} onChange={setLogin} />
-            <Input value={password} onChange={setPassword} type="password" />
+            <Input autoFocus value={login} onChange={setLogin} />
+            <Input value={password} onChange={setPassword} />
             <Button>auth</Button>
         </div>
     );
