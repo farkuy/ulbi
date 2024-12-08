@@ -57,6 +57,7 @@ export const Input = memo((props: InputProps) => {
             value={value}
             onFocus={onFocus}
             onBlur={onBlur}
+            data-testid="input"
             {...otherProps}
         />
     );
