@@ -1,12 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { UserSchema } from '../types/user';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { USER_AUTH_TOKEN } from 'shared/consts/auth';
+import { UserSchema, User } from '../types/user';
 
 const initialState: UserSchema = {};
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        setUser: (state, action: PayloadAction<User>) => {
+            state.authData = action.payload;
+        },
+        logout: (state) => {
+            state.authData = undefined;
+            localStorage.setItem(USER_AUTH_TOKEN, '');
+        },
+        initAuthData: (state) => {
+            const data = localStorage.getItem(USER_AUTH_TOKEN);
+            if (data) state.authData = JSON.parse(data);
+        },
+    },
 });
 
 export const { actions: userActions } = userSlice;

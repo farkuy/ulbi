@@ -13,5 +13,8 @@
   "TOOGLE": "TOOGLE",
   "TOGGLE": "TOGGLE",
   "inc": "inc",
-  "dec": "dec"
+  "dec": "dec",
+  "AUTH_FORM": "AUTH_FORM",
+  "INCORRECT_DATA": "INCORRECT_DATA",
+  "LOGOUT": "LOGOUT"
 }
