@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, useCallback, useEffect } from 'react';
+import { FC, useCallback } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider';
+import { useDispatch, useSelector } from 'react-redux';
+import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -18,24 +18,18 @@ interface LoginFormProps {
     className?: string;
 }
 
+const initReducer: ReducersList = {
+    login: loginReducer,
+};
+
 export const LoginForm:FC<LoginFormProps> = (props) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const store = useStore() as ReduxStoreWithManager;
     const username = useSelector(getLoginUserName);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
     const error = useSelector(getLoginError);
-
-    useEffect(() => {
-        store.reduceManager.add('login', loginReducer);
-
-        return () => {
-            store.reduceManager.remove('login');
-        };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
 
     const onChangeLogin = useCallback((value: string) => {
         dispatch(loginActions.setUserName(value));
@@ -50,20 +44,23 @@ export const LoginForm:FC<LoginFormProps> = (props) => {
     }, [dispatch, username, password]);
 
     return (
-        <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Text title={t('AUTH_FORM')} theme={ThemeText.PRIMARY} />
-            {error && <Text text={error} theme={ThemeText.ERROR} />}
-            <Input
-                value={username}
-                onChange={onChangeLogin}
-                autoFocus
-            />
-            <Input
-                value={password}
-                onChange={onChangePassword}
-                type="password"
-            />
-            <Button onClick={onAuth} disabled={isLoading}>{t('auth')}</Button>
-        </div>
+        <DynamicModuleReducer reducers={initReducer}>
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text title={t('AUTH_FORM')} theme={ThemeText.PRIMARY} />
+                {error && <Text text={error} theme={ThemeText.ERROR} />}
+                <Input
+                    value={username}
+                    onChange={onChangeLogin}
+                    autoFocus
+                />
+                <Input
+                    value={password}
+                    onChange={onChangePassword}
+                    type="password"
+                />
+                <Button onClick={onAuth} disabled={isLoading}>{t('auth')}</Button>
+            </div>
+        </DynamicModuleReducer>
+
     );
 };
