@@ -1,0 +1,19 @@
+.link_wrapper {
+    display: flex;
+    justify-items: center;
+}
+
+.linkText {
+    display: flex;
+    margin-left: 5px;
+}
+
+.svg {
+    fill: var(--inverted-primary-color);
+}
+
+.collapsed {
+    .linkText {
+        display: none;
+    }
+}

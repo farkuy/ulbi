@@ -20,7 +20,7 @@ const LoginModal:FC<LoginModalProps> = (props) => {
             closeModal={closeModal}
             lazy
         >
-            <LoginForm />
+            <LoginForm onClose={closeModal} />
         </Modal>
     );
 };

@@ -2,7 +2,7 @@ import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter/model/slice/counterSlice';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { ReduxStoreWithManager, StateSchema } from './stateSchema';
+import { StateSchema } from './stateSchema';
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducer: ReducersMapObject<StateSchema> = {
@@ -23,3 +23,5 @@ export function createReduxStore(initialState?: StateSchema) {
 
     return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

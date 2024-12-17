@@ -14,7 +14,8 @@
   "TOGGLE": "TOGGLE",
   "inc": "inc",
   "dec": "dec",
-  "AUTH_FORM": "AUTH_FORM",
-  "INCORRECT_DATA": "INCORRECT_DATA",
-  "LOGOUT": "LOGOUT"
+  "AUTH_FORM": "Auth form",
+  "INCORRECT_DATA": "Incorrect data",
+  "LOGOUT": "Logout",
+  "PROFILE": "Profile"
 }

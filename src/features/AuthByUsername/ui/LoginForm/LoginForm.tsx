@@ -6,6 +6,8 @@ import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AppDispatch } from 'app/providers/StoreProvider';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
@@ -16,6 +18,7 @@ import { getLoginUserName } from '../../model/selectors/getLoginUserName/getLogi
 
 interface LoginFormProps {
     className?: string;
+    onClose: () => void;
 }
 
 const initReducer: ReducersList = {
@@ -23,9 +26,9 @@ const initReducer: ReducersList = {
 };
 
 export const LoginForm:FC<LoginFormProps> = (props) => {
-    const { className } = props;
+    const { className, onClose } = props;
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const username = useSelector(getLoginUserName);
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginIsLoading);
@@ -39,9 +42,10 @@ export const LoginForm:FC<LoginFormProps> = (props) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onAuth = useCallback(() => {
-        dispatch(loginByUserName({ username, password }));
-    }, [dispatch, username, password]);
+    const onAuth = useCallback(async () => {
+        const result = await dispatch(loginByUserName({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') onClose();
+    }, [dispatch, username, password, onClose]);
 
     return (
         <DynamicModuleReducer reducers={initReducer}>
