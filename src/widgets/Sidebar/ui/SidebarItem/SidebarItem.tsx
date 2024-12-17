@@ -8,11 +8,11 @@ import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
     item: TSidebarItem;
-    collapsed: boolean;
+    collapsed?: boolean;
 }
 
-export const SidebarItem = memo((props: SidebarItemProps) => {
-    const { item, collapsed } = props;
+export const SidebarItem = (props: SidebarItemProps) => {
+    const { item, collapsed = false } = props;
     const { t } = useTranslation();
 
     return (
@@ -27,4 +27,4 @@ export const SidebarItem = memo((props: SidebarItemProps) => {
             </span>
         </AppLink>
     );
-});
+};

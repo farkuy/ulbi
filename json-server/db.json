@@ -9,14 +9,21 @@
     { "id": "1", "text": "a comment about post 1", "postId": "1" },
     { "id": "2", "text": "another comment about post 1", "postId": "1" }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "id": 1,
       "username": "admin",
       "password": "123"
     }
-  ]
+  ],
+  "profile": {
+    "first": "Влад",
+    "lastname": "Синотов",
+    "age": 26,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYDzNxqYid7oVLh3sjmJrWCXex2mGYj_c3eqJlIhCHAdg=s48-c-k-c0x00ffffff-no-rj"
+  }
 }
