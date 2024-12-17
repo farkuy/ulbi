@@ -25,7 +25,7 @@ const initReducer: ReducersList = {
     login: loginReducer,
 };
 
-export const LoginForm:FC<LoginFormProps> = (props) => {
+const LoginForm:FC<LoginFormProps> = (props) => {
     const { className, onClose } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -68,3 +68,5 @@ export const LoginForm:FC<LoginFormProps> = (props) => {
 
     );
 };
+
+export default LoginForm;

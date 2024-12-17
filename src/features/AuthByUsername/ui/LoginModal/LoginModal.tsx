@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
 import { Modal } from 'shared/ui/Modal/Modal';
 import cls from './LoginModal.module.scss';
-import { LoginForm } from '../LoginForm/LoginForm';
+import LoginForm from '../LoginForm/LoginForm';
 
 interface LoginModalProps {
     className?: string;
