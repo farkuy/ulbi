@@ -6,7 +6,7 @@
 import path from 'path';
 
 export default {
-    globals: { __IS_DEV__: true },
+    globals: { __IS_DEV__: true, __API__: 'http://localhost:8000' },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
