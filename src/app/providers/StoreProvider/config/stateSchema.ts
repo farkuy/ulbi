@@ -28,3 +28,7 @@ export interface ReducerManager {
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
     reduceManager: ReducerManager;
 }
+
+export interface ThunkAPI {
+
+}

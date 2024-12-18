@@ -8,20 +8,24 @@ import { USER_AUTH_TOKEN } from 'shared/consts/auth';
 export const loginByUserName = createAsyncThunk<User, LoginSchema>(
     'login/loginByUserName',
     async (loginData, thunkAPI) => {
+        const { dispatch, rejectWithValue, extra } = thunkAPI;
         try {
-            const response = await axios.post('http://localhost:8000/login', loginData);
+            // @ts-ignore
+            const response = await extra.axios.post('/login', loginData);
 
             if (!response.data) {
                 throw new Error();
             }
 
-            thunkAPI.dispatch(userActions.setUser(response.data));
+            dispatch(userActions.setUser(response.data));
             localStorage.setItem(USER_AUTH_TOKEN, JSON.stringify(response.data));
+            // @ts-ignore
+            extra.navigate('/about');
 
             return response.data;
         } catch (e) {
             console.log(e);
-            return thunkAPI.rejectWithValue(t('INCORRECT_DATA'));
+            return rejectWithValue(t('INCORRECT_DATA'));
         }
     },
 );
