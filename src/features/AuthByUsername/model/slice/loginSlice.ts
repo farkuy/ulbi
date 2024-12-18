@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import i18n from 'i18next';
 import { LoginSchema } from '../types/login';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 
@@ -29,7 +30,7 @@ export const loginSlice = createSlice({
         });
         builder.addCase(loginByUserName.rejected, (state, action) => {
             state.isLoading = false;
-            state.error = action.error.message;
+            state.error = i18n.t('INCORRECT_DATA');
         });
     },
 });

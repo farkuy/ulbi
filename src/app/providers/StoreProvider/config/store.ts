@@ -21,7 +21,7 @@ export function createReduxStore(initialState?: StateSchema, navigate?: Navigate
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 extraArgument: {
-                    axios: $axios,
+                    api: $axios,
                     navigate,
                 },
             },
