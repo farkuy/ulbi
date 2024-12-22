@@ -1,6 +1,9 @@
 {
   "": "",
   "AUTH_FORM": "AUTH_FORM",
+  "CITY": "CITY",
+  "FIRST_NAME": "FIRST_NAME",
+  "LAST_NAME": "LAST_NAME",
   "LOGOUT": "LOGOUT",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Commodi corporis dolore facilis quis saepe?": " Commodi corporis dolore facilis quis saepe?"

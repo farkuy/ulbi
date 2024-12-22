@@ -17,5 +17,6 @@
   "AUTH_FORM": "Форма входа",
   "INCORRECT_DATA": "Неправильные данные",
   "LOGOUT": "Выйти",
-  "PROFILE": "Профиль"
+  "PROFILE": "Профиль",
+  "FIRST_NAME": "FIRST_NAME"
 }

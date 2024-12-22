@@ -1,7 +1,7 @@
-import { FC, memo, useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
-import { fetchProfileData, profileReducer } from 'entities/Profile';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const initialReducer:ReducersList = {
@@ -17,7 +17,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(fetchProfileData);
+        dispatch(fetchProfileData());
     }, [dispatch]);
 
     return (
@@ -25,6 +25,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
             <div>
                 {t('PROFILE_PAGE')}
             </div>
+            <ProfileCard />
         </DynamicModuleReducer>
 
     );
