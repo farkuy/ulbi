@@ -7,7 +7,7 @@ import LoginForm from '../LoginForm/LoginForm';
 interface LoginModalProps {
     className?: string;
     isOpen?: boolean;
-    closeModal?: () => void;
+    closeModal: () => void;
 }
 
 const LoginModal:FC<LoginModalProps> = (props) => {

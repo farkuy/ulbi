@@ -15,12 +15,12 @@ export const Modal:FC<ModalProps> = (props) => {
         isOpen, closeModal, className, children, lazy,
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [cls.open]: isOpen,
     };
 
     const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') closeModal();
+        if (e.key === 'Escape' && closeModal) closeModal();
     }, [closeModal]);
 
     useEffect(() => {

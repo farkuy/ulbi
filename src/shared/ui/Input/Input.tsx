@@ -23,7 +23,7 @@ export const Input = memo((props: InputProps) => {
         ...otherProps
     } = props;
 
-    const inputRef = useRef<HTMLInputElement>();
+    const inputRef = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
 
     const mods: Record<string, boolean> = {
@@ -44,7 +44,7 @@ export const Input = memo((props: InputProps) => {
     useEffect(() => {
         if (autoFocus) {
             setIsFocused(true);
-            inputRef.current.focus();
+            inputRef.current?.focus();
         }
     }, [autoFocus]);
 
