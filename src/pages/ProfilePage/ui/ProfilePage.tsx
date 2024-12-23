@@ -12,7 +12,6 @@ interface ProfilePageProps {
     className?: string;
 }
 const ProfilePage = memo<ProfilePageProps>((props) => {
-    const { className } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 

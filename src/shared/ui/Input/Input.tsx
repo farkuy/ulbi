@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
@@ -26,7 +26,7 @@ export const Input = memo((props: InputProps) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [isFocused, setIsFocused] = useState(false);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.focus]: isFocused,
     };
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {

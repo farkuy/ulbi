@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import { FC, useCallback, useEffect } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
@@ -15,7 +15,7 @@ export const Modal:FC<ModalProps> = (props) => {
         isOpen, closeModal, className, children, lazy,
     } = props;
 
-    const mods: Record<string, boolean | undefined> = {
+    const mods: Mods = {
         [cls.open]: isOpen,
     };
 
