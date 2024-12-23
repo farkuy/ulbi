@@ -7,8 +7,6 @@ export type ReducersList = {
     [name in keyStateSchema]?: Reducer
 }
 
-type ReducersListEntry = [keyStateSchema, Reducer]
-
 interface DynamicModuleReducerProps {
     reducers: ReducersList;
     deleteWithUnmount?: boolean;
@@ -21,15 +19,15 @@ export const DynamicModuleReducer:FC<DynamicModuleReducerProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
-            store.reduceManager.add(name, reducer);
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reduceManager.add(name as keyStateSchema, reducer);
             dispatch({ type: `Init ${name} reducer` });
         });
 
         return () => {
             if (deleteWithUnmount) {
-                Object.entries(reducers).forEach(([name]: ReducersListEntry) => {
-                    store.reduceManager.remove(name);
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reduceManager.remove(name as keyStateSchema);
                     dispatch({ type: `Delete ${name} reducer` });
                 });
             }

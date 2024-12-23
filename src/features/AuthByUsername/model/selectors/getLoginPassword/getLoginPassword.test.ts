@@ -13,7 +13,7 @@ describe('getLoginUserName', () => {
     });
 
     test('added "" password', () => {
-        const state: DeepPartial<StateSchema> = undefined;
+        const state: DeepPartial<StateSchema> = { login: undefined };
         expect(getLoginPassword(state as StateSchema)).toEqual('');
     });
 });

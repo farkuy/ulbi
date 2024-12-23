@@ -17,7 +17,7 @@ export const loginByUserName = createAsyncThunk<User, LoginSchema, ThunkConfig<s
 
             dispatch(userActions.setUser(response.data));
             localStorage.setItem(USER_AUTH_TOKEN, JSON.stringify(response.data));
-            extra.navigate('/about');
+            extra.navigate!('/about');
 
             return response.data;
         } catch (e) {
