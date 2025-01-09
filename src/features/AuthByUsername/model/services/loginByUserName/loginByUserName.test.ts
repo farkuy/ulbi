@@ -25,6 +25,6 @@ describe('loginByUserName', () => {
         const result = await thunk.callThunk({ username: 'dxsd', password: 'zzs' });
 
         expect(result.meta.requestStatus).toEqual('rejected');
-        expect(result.payload).toEqual(undefined);
+        expect(result.payload).toEqual('error');
     });
 });
