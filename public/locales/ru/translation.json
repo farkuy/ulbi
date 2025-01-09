@@ -18,5 +18,6 @@
   "INCORRECT_DATA": "Неправильные данные",
   "LOGOUT": "Выйти",
   "PROFILE": "Профиль",
-  "FIRST_NAME": "FIRST_NAME"
+  "FIRST_NAME": "FIRST_NAME",
+  "CANCEL": "CANCEL"
 }

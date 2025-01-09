@@ -1,13 +1,16 @@
 {
   "": "",
   "AUTH_FORM": "AUTH_FORM",
+  "CANCEL": "CANCEL",
   "CITY": "CITY",
   "FIRST_NAME": "FIRST_NAME",
+  "HAVE_ERROR": "HAVE_ERROR",
   "LAST_NAME": "LAST_NAME",
   "LOGOUT": "LOGOUT",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Commodi corporis dolore facilis quis saepe?": " Commodi corporis dolore facilis quis saepe?"
   },
+  "PLS_RELOAD": "PLS_RELOAD",
   "PROFILE": "PROFILE",
   "PROFILE_PAGE": "PROFILE_PAGE",
   "TOGGLE": "Toggle",
