@@ -12,11 +12,13 @@
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Commodi corporis dolore facilis quis saepe?": " Commodi corporis dolore facilis quis saepe?"
   },
+  "PHOTO": "PHOTO",
   "PLS_RELOAD": "PLS_RELOAD",
   "PROFILE": "PROFILE",
   "PROFILE_PAGE": "PROFILE_PAGE",
   "SAVE": "SAVE",
   "TOGGLE": "Toggle",
+  "USERNAME": "USERNAME",
   "auth": "auth",
   "dec": "dec",
   "inc": "inc",

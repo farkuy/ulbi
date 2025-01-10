@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text } from 'shared/ui/Text/Text';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -20,10 +21,12 @@ interface ProfileCardProps {
     error?: string;
     textPos?: TextPos;
     readOnly?: boolean;
-    onChangeFirstName: (value: string) => void;
-    onChangeLastName: (value: string) => void;
-    onChangePlace: (value: string) => void;
-    onChangeAge: (value: string) => void;
+    onChangeFirstName?: (value: string) => void;
+    onChangeLastName?: (value: string) => void;
+    onChangePlace?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeUserName?: (value: string) => void;
 }
 
 export const ProfileCard:FC<ProfileCardProps> = (props) => {
@@ -38,6 +41,8 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
         onChangeLastName,
         onChangePlace,
         onChangeAge,
+        onChangeUserName,
+        onChangeAvatar,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -60,6 +65,14 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
 
     return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
+            {
+                profileData?.avatar
+                && (
+                    <div className={cls.avatar}>
+                        <Avatar src={profileData.avatar} alt={t('PHOTO')} />
+                    </div>
+                )
+            }
             <div className={classNames(cls.info)}>
                 <Input
                     value={profileData?.first ?? ''}
@@ -89,6 +102,20 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
                     className={cls.input}
                     onChange={onChangeAge}
                     type="number"
+                />
+                <Input
+                    value={profileData?.username ?? ''}
+                    placeholder={t('USERNAME')}
+                    readonly={readOnly}
+                    className={cls.input}
+                    onChange={onChangeUserName}
+                />
+                <Input
+                    value={profileData?.avatar ?? ''}
+                    placeholder={t('PHOTO')}
+                    readonly={readOnly}
+                    className={cls.input}
+                    onChange={onChangeAvatar}
                 />
             </div>
 

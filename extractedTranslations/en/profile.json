@@ -3,5 +3,7 @@
   "CITY": "City",
   "LAST_NAME": "Last name",
   "AGE": "AGE",
-  "COUNTRY": "COUNTRY"
+  "COUNTRY": "COUNTRY",
+  "USERNAME": "USERNAME",
+  "PHOTO": "PHOTO"
 }

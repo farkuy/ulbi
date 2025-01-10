@@ -6,12 +6,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ProfileCardHeader.module.scss';
 
 interface ProfileCardHeaderProps {
-    profileData?: Profile;
     readOnly?: boolean;
 }
 
 export const ProfileCardHeader:FC<ProfileCardHeaderProps> = (props) => {
-    const { profileData, readOnly } = props;
+    const { readOnly } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
@@ -32,7 +31,7 @@ export const ProfileCardHeader:FC<ProfileCardHeaderProps> = (props) => {
     return (
         <div className={cls.ProfileCardHeader}>
             <div>
-                {profileData?.username}
+                {t('PROFILE')}
             </div>
             <div className={cls.buttons}>
                 <Button

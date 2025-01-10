@@ -44,12 +44,20 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
         dispatch(profileActions.setProfileForm({ lastname: value || '' }));
     }, [dispatch]);
 
+    const onChangeAge = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ age: Number(value) || 0 }));
+    }, [dispatch]);
+
     const onChangePlace = useCallback((value: string) => {
         dispatch(profileActions.setProfileForm({ city: value || '' }));
     }, [dispatch]);
 
-    const onChangeAge = useCallback((value: string) => {
-        dispatch(profileActions.setProfileForm({ age: Number(value) || 0 }));
+    const onChangeUserName = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ username: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ avatar: value || '' }));
     }, [dispatch]);
 
     return (
@@ -57,7 +65,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
             <div>
                 {t('PROFILE_PAGE')}
             </div>
-            <ProfileCardHeader profileData={profileForm} readOnly={readOnly} />
+            <ProfileCardHeader readOnly={readOnly} />
             <ProfileCard
                 profileData={profileForm}
                 isLoading={isLoading}
@@ -68,6 +76,8 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
                 onChangeLastName={onChangeLastName}
                 onChangePlace={onChangePlace}
                 onChangeAge={onChangeAge}
+                onChangeUserName={onChangeUserName}
+                onChangeAvatar={onChangeAvatar}
             />
         </DynamicModuleReducer>
 
