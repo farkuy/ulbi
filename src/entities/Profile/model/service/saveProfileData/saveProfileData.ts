@@ -9,9 +9,6 @@ export const saveProfileData = createAsyncThunk<Profile, void, ThunkConfig<strin
         const { rejectWithValue, extra, getState } = thunkAPI;
         try {
             const formData = getProfileForm(getState());
-
-            console.log(formData);
-
             const response = await extra.api.put<Profile>('/profile', formData);
 
             return response.data;
