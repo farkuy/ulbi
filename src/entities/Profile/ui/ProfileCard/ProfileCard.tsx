@@ -20,6 +20,10 @@ interface ProfileCardProps {
     error?: string;
     textPos?: TextPos;
     readOnly?: boolean;
+    onChangeFirstName: (value: string) => void;
+    onChangeLastName: (value: string) => void;
+    onChangePlace: (value: string) => void;
+    onChangeAge: (value: string) => void;
 }
 
 export const ProfileCard:FC<ProfileCardProps> = (props) => {
@@ -30,6 +34,10 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
         error,
         textPos = TextPos.CENTER,
         readOnly,
+        onChangeFirstName,
+        onChangeLastName,
+        onChangePlace,
+        onChangeAge,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -52,25 +60,35 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
 
     return (
         <div className={classNames(cls.ProfileCard, {}, [className])}>
-
             <div className={classNames(cls.info)}>
                 <Input
                     value={profileData?.first ?? ''}
                     placeholder={t('FIRST_NAME')}
-                    readOnly={readOnly}
+                    readonly={readOnly}
                     className={cls.input}
+                    onChange={onChangeFirstName}
                 />
                 <Input
                     value={profileData?.lastname ?? ''}
                     placeholder={t('LAST_NAME')}
-                    readOnly={readOnly}
+                    readonly={readOnly}
                     className={cls.input}
+                    onChange={onChangeLastName}
                 />
                 <Input
                     value={profileData?.city ?? ''}
                     placeholder={t('CITY')}
-                    readOnly={readOnly}
+                    readonly={readOnly}
                     className={cls.input}
+                    onChange={onChangePlace}
+                />
+                <Input
+                    value={String(profileData?.age) ?? ''}
+                    placeholder={t('AGE')}
+                    readonly={readOnly}
+                    className={cls.input}
+                    onChange={onChangeAge}
+                    type="number"
                 />
             </div>
 

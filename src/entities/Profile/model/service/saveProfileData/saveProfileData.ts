@@ -1,14 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { getProfileForm } from 'entities/Profile';
 import { Profile } from '../../types/profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
-    'profile/fetchProfileData',
+export const saveProfileData = createAsyncThunk<Profile, void, ThunkConfig<string>>(
+    'profile/saveProfileData',
     async (_, thunkAPI) => {
         const { rejectWithValue, extra, getState } = thunkAPI;
         try {
-            getState();
-            const response = await extra.api.get<Profile>('/profile');
+            const formData = getProfileForm(getState());
+
+            console.log(formData);
+
+            const response = await extra.api.put<Profile>('/profile', formData);
 
             return response.data;
         } catch (e) {

@@ -1,8 +1,10 @@
 {
   "": "",
+  "AGE": "AGE",
   "AUTH_FORM": "AUTH_FORM",
   "CANCEL": "CANCEL",
   "CITY": "CITY",
+  "COUNTRY": "COUNTRY",
   "FIRST_NAME": "FIRST_NAME",
   "HAVE_ERROR": "HAVE_ERROR",
   "INCORRECT_DATA": "",
@@ -14,6 +16,7 @@
   "PLS_RELOAD": "PLS_RELOAD",
   "PROFILE": "PROFILE",
   "PROFILE_PAGE": "PROFILE_PAGE",
+  "SAVE": "SAVE",
   "TOGGLE": "Переключение",
   "auth": "",
   "dec": "dec",

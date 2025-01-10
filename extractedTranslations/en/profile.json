@@ -1,5 +1,7 @@
 {
   "FIRST_NAME": "First name",
   "CITY": "City",
-  "LAST_NAME": "Last name"
+  "LAST_NAME": "Last name",
+  "AGE": "AGE",
+  "COUNTRY": "COUNTRY"
 }

@@ -1,11 +1,13 @@
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import {
     fetchProfileData,
     getProfile,
-    getProfileError,
-    getProfileLoading, getReadonly,
+    getProfileError, getProfileForm,
+    getProfileLoading,
+    getReadonly,
+    profileActions,
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
@@ -25,7 +27,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
-    const profileData = useSelector(getProfile);
+    const profileForm = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
     const readOnly = useSelector(getReadonly);
@@ -34,18 +36,38 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
         dispatch(fetchProfileData());
     }, [dispatch]);
 
+    const onChangeFirstName = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ first: value || '' }));
+    }, [dispatch]);
+
+    const onChangeLastName = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ lastname: value || '' }));
+    }, [dispatch]);
+
+    const onChangePlace = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ city: value || '' }));
+    }, [dispatch]);
+
+    const onChangeAge = useCallback((value: string) => {
+        dispatch(profileActions.setProfileForm({ age: Number(value) || 0 }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleReducer reducers={initialReducer}>
             <div>
                 {t('PROFILE_PAGE')}
             </div>
-            <ProfileCardHeader profileData={profileData} readOnly={readOnly} />
+            <ProfileCardHeader profileData={profileForm} readOnly={readOnly} />
             <ProfileCard
-                profileData={profileData}
+                profileData={profileForm}
                 isLoading={isLoading}
                 error={error}
                 textPos={TextPos.LEFT}
                 readOnly={readOnly}
+                onChangeFirstName={onChangeFirstName}
+                onChangeLastName={onChangeLastName}
+                onChangePlace={onChangePlace}
+                onChangeAge={onChangeAge}
             />
         </DynamicModuleReducer>
 

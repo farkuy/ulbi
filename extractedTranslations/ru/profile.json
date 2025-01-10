@@ -1,5 +1,7 @@
 {
   "FIRST_NAME": "Имя",
   "CITY": "Город",
-  "LAST_NAME": "Фамилия"
+  "LAST_NAME": "Фамилия",
+  "AGE": "AGE",
+  "COUNTRY": "COUNTRY"
 }

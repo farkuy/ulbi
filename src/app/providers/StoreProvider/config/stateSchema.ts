@@ -36,4 +36,4 @@ interface ThunkAPI {
     navigate?: NavigateFunction;
 }
 
-export interface ThunkConfig<T> {rejectValue: T, extra: ThunkAPI}
+export interface ThunkConfig<T> {rejectValue: T, extra: ThunkAPI, state: StateSchema}

@@ -4,7 +4,7 @@ import {
 } from 'react';
 import cls from './Input.module.scss';
 
-type InputPropsBase = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>
+type InputPropsBase = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends InputPropsBase{
     className?: string;
@@ -21,7 +21,7 @@ export const Input = memo((props: InputProps) => {
         onChange,
         type = 'text',
         autoFocus,
-        readonly = false,
+        readonly,
         ...otherProps
     } = props;
 

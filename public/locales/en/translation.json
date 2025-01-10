@@ -19,5 +19,6 @@
   "LOGOUT": "Logout",
   "PROFILE": "Profile",
   "FIRST_NAME": "FIRST_NAME",
-  "CANCEL": "CANCEL"
+  "CANCEL": "CANCEL",
+  "SAVE": "SAVE"
 }
