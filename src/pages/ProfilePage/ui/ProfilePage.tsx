@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import {
     fetchProfileData,
-    getProfile,
-    getProfileError, getProfileForm,
+    getProfileError,
+    getProfileForm,
     getProfileLoading,
     getReadonly,
     profileActions,
@@ -15,6 +15,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { TextPos } from 'entities/Profile/ui/ProfileCard/ProfileCard';
 import { ProfileCardHeader } from 'entities/Profile/ui/ProfileCardHeader/ProfileCardHeader';
+import { CURRENCY } from 'entities/Currency';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -60,6 +61,10 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
         dispatch(profileActions.setProfileForm({ avatar: value || '' }));
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((value: CURRENCY) => {
+        dispatch(profileActions.setProfileForm({ currency: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleReducer reducers={initialReducer}>
             <div>
@@ -78,6 +83,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
                 onChangeAge={onChangeAge}
                 onChangeUserName={onChangeUserName}
                 onChangeAvatar={onChangeAvatar}
+                onChangeCurrency={onChangeCurrency}
             />
         </DynamicModuleReducer>
 

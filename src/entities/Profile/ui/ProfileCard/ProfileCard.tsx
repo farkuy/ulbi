@@ -5,6 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { CURRENCY, CurrencySelect } from 'entities/Currency';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -27,6 +28,7 @@ interface ProfileCardProps {
     onChangeAge?: (value: string) => void;
     onChangeAvatar?: (value: string) => void;
     onChangeUserName?: (value: string) => void;
+    onChangeCurrency?: (value: CURRENCY) => void;
 }
 
 export const ProfileCard:FC<ProfileCardProps> = (props) => {
@@ -43,6 +45,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
         onChangeAge,
         onChangeUserName,
         onChangeAvatar,
+        onChangeCurrency,
     } = props;
 
     const { t } = useTranslation('profile');
@@ -116,6 +119,11 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
                     readonly={readOnly}
                     className={cls.input}
                     onChange={onChangeAvatar}
+                />
+                <CurrencySelect
+                    value={profileData?.currency}
+                    onChangeCurrency={onChangeCurrency}
+                    readonly={readOnly}
                 />
             </div>
 
