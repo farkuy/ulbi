@@ -1,12 +1,12 @@
 import { CURRENCY } from 'entities/Currency';
-import { Country } from 'shared/consts/common';
+import { COUNTRY } from 'entities/Country';
 
 export interface Profile {
     first?: string,
     lastname?: string,
     age?: number,
     currency?: CURRENCY,
-    country?: Country,
+    country?: COUNTRY,
     city?: string,
     username?: string,
     avatar?: string,

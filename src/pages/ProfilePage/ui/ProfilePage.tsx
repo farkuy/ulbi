@@ -16,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { TextPos } from 'entities/Profile/ui/ProfileCard/ProfileCard';
 import { ProfileCardHeader } from 'entities/Profile/ui/ProfileCardHeader/ProfileCardHeader';
 import { CURRENCY } from 'entities/Currency';
+import { COUNTRY } from 'entities/Country';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -24,6 +25,7 @@ const initialReducer:ReducersList = {
 interface ProfilePageProps {
     className?: string;
 }
+
 const ProfilePage = memo<ProfilePageProps>((props) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
@@ -65,6 +67,10 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
         dispatch(profileActions.setProfileForm({ currency: value || '' }));
     }, [dispatch]);
 
+    const onChangeCountry = useCallback((value: COUNTRY) => {
+        dispatch(profileActions.setProfileForm({ country: value || '' }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleReducer reducers={initialReducer}>
             <div>
@@ -84,6 +90,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
                 onChangeUserName={onChangeUserName}
                 onChangeAvatar={onChangeAvatar}
                 onChangeCurrency={onChangeCurrency}
+                onChangeCountry={onChangeCountry}
             />
         </DynamicModuleReducer>
 

@@ -1,7 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { routeConfig, RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { getUser } from 'entities/User';
 import { TSidebarItem } from '../../model/model';
 import cls from './SidebarItem.module.scss';
 
@@ -13,6 +15,9 @@ interface SidebarItemProps {
 export const SidebarItem = (props: SidebarItemProps) => {
     const { item, collapsed = false } = props;
     const { t } = useTranslation();
+    const isAuth = useSelector(getUser);
+
+    if (!isAuth && routeConfig[item.path].forAuthPage) return null;
 
     return (
         <AppLink
