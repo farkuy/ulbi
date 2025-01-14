@@ -24,6 +24,7 @@ export const profileSlice = createSlice({
         },
         cancelProfileChange: (state) => {
             state.form = state.data;
+            state.validateDataError = undefined;
         },
     },
     extraReducers: (builder) => {
