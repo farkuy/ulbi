@@ -25,7 +25,6 @@ export const ProfileCardHeader:FC<ProfileCardHeaderProps> = (props) => {
 
     const saveProfileChange = useCallback(() => {
         dispatch(saveProfileData());
-        dispatch(profileActions.setReadonly(true));
     }, [dispatch]);
 
     return (

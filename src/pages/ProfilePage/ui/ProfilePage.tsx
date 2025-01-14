@@ -6,6 +6,7 @@ import {
     getProfileError,
     getProfileForm,
     getProfileLoading,
+    getProfileValidateError,
     getReadonly,
     profileActions,
     ProfileCard,
@@ -17,6 +18,7 @@ import { TextPos } from 'entities/Profile/ui/ProfileCard/ProfileCard';
 import { ProfileCardHeader } from 'entities/Profile/ui/ProfileCardHeader/ProfileCardHeader';
 import { CURRENCY } from 'entities/Currency';
 import { COUNTRY } from 'entities/Country';
+import { Text, ThemeText } from 'shared/ui/Text/Text';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -34,6 +36,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
     const readOnly = useSelector(getReadonly);
+    const validateError = useSelector(getProfileValidateError);
 
     useEffect(() => {
         dispatch(fetchProfileData());
@@ -77,6 +80,9 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
                 {t('PROFILE_PAGE')}
             </div>
             <ProfileCardHeader readOnly={readOnly} />
+            {
+                validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={err} key={err} />))
+            }
             <ProfileCard
                 profileData={profileForm}
                 isLoading={isLoading}

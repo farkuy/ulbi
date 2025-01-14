@@ -8,7 +8,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { CURRENCY, CurrencySelect } from 'entities/Currency';
 import { COUNTRY } from 'entities/Country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
-import { Profile } from '../../model/types/profile';
+import { Profile, ValidateProfileError } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 export enum TextPos {

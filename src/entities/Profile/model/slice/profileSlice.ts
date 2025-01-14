@@ -35,6 +35,7 @@ export const profileSlice = createSlice({
             state.loading = false;
             state.data = action.payload;
             state.form = action.payload;
+            state.validateDataError = undefined;
         });
         builder.addCase(fetchProfileData.rejected, (state) => {
             state.loading = false;
@@ -49,10 +50,12 @@ export const profileSlice = createSlice({
             state.loading = false;
             state.data = action.payload;
             state.form = action.payload;
+            state.validateDataError = undefined;
+            state.readonly = true;
         });
-        builder.addCase(saveProfileData.rejected, (state) => {
+        builder.addCase(saveProfileData.rejected, (state, action) => {
             state.loading = false;
-            state.error = i18n.t('INCORRECT_DATA');
+            state.validateDataError = action.payload;
         });
     },
 });
