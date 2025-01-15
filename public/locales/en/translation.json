@@ -20,5 +20,8 @@
   "PROFILE": "Profile",
   "FIRST_NAME": "FIRST_NAME",
   "CANCEL": "CANCEL",
-  "SAVE": "SAVE"
+  "SAVE": "SAVE",
+  "SERVER_ERROR": "SERVER_ERROR",
+  "EMPTY_DATA": "empty data",
+  "INCORRECT_AGE": "INCORRECT_AGE"
 }

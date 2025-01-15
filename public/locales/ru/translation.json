@@ -20,5 +20,8 @@
   "PROFILE": "Профиль",
   "FIRST_NAME": "FIRST_NAME",
   "CANCEL": "CANCEL",
-  "SAVE": "SAVE"
+  "SAVE": "SAVE",
+  "SERVER_ERROR": "SERVER_ERROR",
+  "EMPTY_DATA": "Данные не введены",
+  "INCORRECT_AGE": "INCORRECT_AGE"
 }

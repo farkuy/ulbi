@@ -19,6 +19,7 @@ import { ProfileCardHeader } from 'entities/Profile/ui/ProfileCardHeader/Profile
 import { CURRENCY } from 'entities/Currency';
 import { COUNTRY } from 'entities/Country';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
+import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -39,8 +40,16 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
     const validateError = useSelector(getProfileValidateError);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        // TODO подумать как избавиться от этого ублюдства
+        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
     }, [dispatch]);
+
+    const translateError = {
+        [ValidateProfileError.INCORRECT_DATA]: t('INCORRECT_DATA'),
+        [ValidateProfileError.INCORRECT_AGE]: t('INCORRECT_AGE'),
+        [ValidateProfileError.EMPTY_DATA]: t('EMPTY_DATA'),
+        [ValidateProfileError.SERVER_ERROR]: t('SERVER_ERROR'),
+    };
 
     const onChangeFirstName = useCallback((value: string) => {
         dispatch(profileActions.setProfileForm({ first: value || '' }));
@@ -81,7 +90,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
             </div>
             <ProfileCardHeader readOnly={readOnly} />
             {
-                validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={err} key={err} />))
+                validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={translateError[err]} key={err} />))
             }
             <ProfileCard
                 profileData={profileForm}
