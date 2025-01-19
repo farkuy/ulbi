@@ -1,9 +1,11 @@
 {
-  "FIRST_NAME": "First name",
-  "CITY": "City",
-  "LAST_NAME": "Last name",
   "AGE": "AGE",
+  "CITY": "City",
   "COUNTRY": "COUNTRY",
-  "USERNAME": "USERNAME",
-  "PHOTO": "PHOTO"
+  "FIRST_NAME": "First name",
+  "HAVE_ERROR": "",
+  "LAST_NAME": "Last name",
+  "PHOTO": "PHOTO",
+  "PLS_RELOAD": "",
+  "USERNAME": "USERNAME"
 }
