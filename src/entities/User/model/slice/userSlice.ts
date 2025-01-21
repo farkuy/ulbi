@@ -18,6 +18,7 @@ export const userSlice = createSlice({
         initAuthData: (state) => {
             const data = localStorage.getItem(USER_AUTH_TOKEN);
             if (data) state.authData = JSON.parse(data);
+            state._inited = true;
         },
     },
 });

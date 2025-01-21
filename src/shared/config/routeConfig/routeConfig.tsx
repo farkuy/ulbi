@@ -4,7 +4,7 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 
-interface CustomRouteProps extends RouteProps {
+export interface CustomRouteProps extends RouteProps {
     forAuthPage?: boolean;
 }
 
