@@ -4,8 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { fetchArticleDetails } from '../../model/service/fetchArticleDetails';
-import { getArticleDetails } from '../../model/selectors/getArticleDetails/getArticleDetails';
+import { getArticleDetails, getArticleDetailsError, getArticleDetailsLoading } from '../../model/selectors/getArticle/getArticle';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
@@ -24,10 +25,16 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     const dispatch = useAppDispatch();
     const articleDetails = useSelector(getArticleDetails);
+    const articleDetailsError = useSelector(getArticleDetailsError);
+    const articleDetailsLoading = useSelector(getArticleDetailsLoading);
 
     useEffect(() => {
         dispatch(fetchArticleDetails(+id));
     }, [dispatch, id]);
+
+    if (true) {
+        return <Skeleton height={100} width={100} borderRadius="50%" />;
+    }
 
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>
