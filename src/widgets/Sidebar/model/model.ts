@@ -3,7 +3,7 @@ import React from 'react';
 import AboutIcon from 'shared/assets/icons/about.svg';
 import MainIcon from 'shared/assets/icons/main.svg';
 import ProfileIcon from 'shared/assets/icons/profile.svg';
-import i18n from 'i18next';
+import ArticlesIcon from 'shared/assets/icons/article-20-20.svg';
 
 export interface TSidebarItem {
     path: AppRoutes,
@@ -26,5 +26,10 @@ export const SidebarLinks: TSidebarItem[] = [
         path: AppRoutes.PROFILE,
         Icon: ProfileIcon,
         text: 'PROFILE',
+    },
+    {
+        path: AppRoutes.ARTICLES,
+        Icon: ArticlesIcon,
+        text: 'ARTICLES',
     },
 ];
