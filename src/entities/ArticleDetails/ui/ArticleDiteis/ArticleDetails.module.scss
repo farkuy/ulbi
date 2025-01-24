@@ -1,3 +1,22 @@
 .ArticleDetails {
+    padding: 0 20px;
+}
 
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.avatar {
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.default_skeleton {
+    margin-top: 15px;
 }
