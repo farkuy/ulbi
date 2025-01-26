@@ -1,3 +1,12 @@
 .ArticleDetailsImage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    align-items: center;
+}
 
+.img {
+    width: 100%;
+    margin-bottom: 10px;
 }

@@ -14,9 +14,16 @@
 }
 
 .title {
-    margin-top: 20px;
+    margin: 10px 0;
 }
 
 .default_skeleton {
     margin-top: 15px;
+}
+
+.dopInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
 }

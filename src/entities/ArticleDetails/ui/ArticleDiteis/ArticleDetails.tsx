@@ -6,6 +6,10 @@ import { useSelector } from 'react-redux';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Text, TextSize, ThemeText } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Icon } from 'shared/ui/Icon/Icon';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+
 import { ArticleDetailsCode } from '../../ui/ArticleDiteis/ui/ArticleDetailsCode/ArticleDetailsCode';
 import { ArticleDetailsText } from '../../ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { ArticleDetailsImage } from '../../ui/ArticleDiteis/ui/ArticleDetailsImage/ArticleDetailsImage';
@@ -39,11 +43,11 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlocks) => {
         switch (block.type) {
         case ArticleBlockType.TEXT:
-            return <ArticleDetailsText />;
+            return <ArticleDetailsText key={block.id} block={block} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleDetailsImage />;
+            return <ArticleDetailsImage key={block.id} block={block} />;
         case ArticleBlockType.CODE:
-            return <ArticleDetailsCode />;
+            return <ArticleDetailsCode key={block.id} block={block} />;
         default: return null;
         }
     }, []);
@@ -68,14 +72,29 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         return <Text theme={ThemeText.ERROR} title={error} />;
     }
 
-    console.log(article);
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 <div className={cls.avatarWrapper}>
                     <Avatar className={cls.avatar} src={article?.img} size={250} />
                 </div>
-                <Text theme={ThemeText.PRIMARY} title={article?.title} text={article?.subtitle} size={TextSize.XL} />
+                <Text
+                    className={cls.title}
+                    theme={ThemeText.PRIMARY}
+                    title={article?.title}
+                    text={article?.subtitle}
+                    size={TextSize.XL}
+                />
+                <div style={{ marginBottom: '30px' }}>
+                    <div className={cls.dopInfo}>
+                        <Icon Svg={CalendarIcon} />
+                        <Text title={article?.createdAt} size={TextSize.M} />
+                    </div>
+                    <div className={cls.dopInfo}>
+                        <Icon Svg={EyeIcon} />
+                        <Text title={String(article?.views)} size={TextSize.M} />
+                    </div>
+                </div>
                 {article?.blocks.map(renderBlock)}
             </div>
         </DynamicModuleReducer>
