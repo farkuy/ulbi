@@ -11,7 +11,7 @@ describe('fetchProfileData', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
 
         mockedAxios.get.mockReturnValue(Promise.resolve({ data: mockProfile }));
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(mockedAxios.get).toBeCalledTimes(1);
         expect(result.meta.requestStatus).toEqual('fulfilled');
@@ -22,7 +22,7 @@ describe('fetchProfileData', () => {
         const thunk = new TestAsyncThunk(fetchProfileData);
         mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await thunk.callThunk();
+        const result = await thunk.callThunk('1');
 
         expect(result.meta.requestStatus).toEqual('rejected');
         expect(result.payload).toEqual('server error');

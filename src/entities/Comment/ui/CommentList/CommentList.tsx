@@ -20,7 +20,7 @@ export const CommentList = memo((props: CommentListProps) => {
         <div className={classNames(cls.CommentList, {}, [className])}>
             <Text className={cls.title} title={t('Комментарии')} size={TextSize.L} />
             { comments.length
-                ? comments.map((comm) => <Comment isLoading={isLoading} comment={comm} />)
+                ? comments.map((comm) => <Comment key={comm.id} isLoading={isLoading} comment={comm} />)
                 : <Text className={cls.noComment} title={t('Комментарии остутсвуют')} />}
         </div>
     );

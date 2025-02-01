@@ -1,0 +1,18 @@
+.AddComment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: var(--inverted-bg-color);
+    gap: 20px;
+}
+
+.input {
+    background-color: var(--bg-color);
+    width: 100%;
+}
+
+.title {
+    margin-bottom: 10px;
+}

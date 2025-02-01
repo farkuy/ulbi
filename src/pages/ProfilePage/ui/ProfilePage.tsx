@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import {
@@ -20,6 +20,8 @@ import { CURRENCY } from 'entities/Currency';
 import { COUNTRY } from 'entities/Country';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { useParams } from 'react-router-dom';
+import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -32,6 +34,7 @@ interface ProfilePageProps {
 const ProfilePage = memo<ProfilePageProps>((props) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     const profileForm = useSelector(getProfileForm);
     const isLoading = useSelector(getProfileLoading);
@@ -39,10 +42,7 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
     const readOnly = useSelector(getReadonly);
     const validateError = useSelector(getProfileValidateError);
 
-    useEffect(() => {
-        // TODO подумать как избавиться от этого ублюдства
-        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
-    }, [dispatch]);
+    useStartEffect(() => dispatch(fetchProfileData(id)));
 
     const translateError = {
         [ValidateProfileError.INCORRECT_DATA]: t('INCORRECT_DATA'),
