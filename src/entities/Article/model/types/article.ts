@@ -1,3 +1,7 @@
+export enum ArticleView {
+    BIG = 'big',
+    SMALL = 'small',
+}
 export enum ArticleBlockType {
     TEXT = 'TEXT',
     CODE = 'CODE',

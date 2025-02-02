@@ -1,0 +1,14 @@
+.Container {
+    width: 230px;
+    height: 230px;
+    padding: 15px;
+    background-color: var(--bg-card);
+    border-radius: 13px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.Container:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    opacity: 0.8;
+}

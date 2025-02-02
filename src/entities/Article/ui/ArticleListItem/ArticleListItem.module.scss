@@ -1,0 +1,53 @@
+.big {
+
+}
+
+.small {
+    .imgWrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .createdAt {
+        position: absolute;
+        right: 1px;
+    }
+
+    .img {
+        width: 60%;
+    }
+
+    .infoWrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    .tags {
+        display: flex;
+        gap: 4px;
+        width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .tags p:not(:last-child)::after {
+        content: ", ";
+    }
+
+    .viewsWrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .title {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

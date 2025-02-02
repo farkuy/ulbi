@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/ArticleDetails';
+import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';

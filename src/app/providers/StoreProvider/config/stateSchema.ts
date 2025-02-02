@@ -8,7 +8,7 @@ import { CombinedState } from 'redux';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router';
-import { ArticleSchema } from 'entities/ArticleDetails';
+import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlesDetailsPage';
 import { AddCommentSchema } from 'features/AddComment';
 

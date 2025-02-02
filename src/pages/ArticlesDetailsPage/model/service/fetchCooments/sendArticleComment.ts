@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Comment } from 'entities/Comment';
 import { getUser } from 'entities/User';
-import { getArticleDetails } from 'entities/ArticleDetails';
+import { getArticleDetails } from 'entities/Article';
 import { fetchCommentsByArticleId } from '../fetchCooments/fetchComments';
 
 export const sendArticleComment = createAsyncThunk<Comment, string | undefined, ThunkConfig<string>>(
