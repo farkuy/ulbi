@@ -28,6 +28,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         article={art}
                         key={art.id}
                         view={view}
+                        isLoading
                     />
                 )) : null
             }

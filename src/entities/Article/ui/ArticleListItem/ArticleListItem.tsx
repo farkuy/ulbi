@@ -6,11 +6,12 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { Container } from 'shared/ui/Container/Container';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { ArticleDetailsText } from 'entities/Article/ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { ArticleListItemLoading } from 'entities/Article/ui/ArticleListItem/ArticleListItemLoading';
+import { ArticleDetailsText } from '../../ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
@@ -40,6 +41,8 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const goArticle = useCallback(() => {
         navigate(RoutePath.article_details + article.id);
     }, [navigate, article]);
+
+    if (isLoading) return <ArticleListItemLoading view={view} />;
 
     if (view === ArticleView.BIG) {
         const firstBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
