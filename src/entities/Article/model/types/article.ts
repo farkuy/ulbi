@@ -1,3 +1,5 @@
+import { User } from 'entities/User';
+
 export enum ArticleView {
     BIG = 'big',
     SMALL = 'small',
@@ -47,6 +49,7 @@ export interface Article {
     createdAt: string;
     type: ArticleType[];
     blocks: ArticleBlocks[];
+    user: User;
 }
 
 export interface ArticleSchema {

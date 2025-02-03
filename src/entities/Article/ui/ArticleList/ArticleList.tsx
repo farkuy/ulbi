@@ -16,8 +16,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className, articles, isLoading, view,
     } = props;
 
+    /* if (isLoading) {
+        return (new Array(9).fill(0).map((val) => <ArticleListItem />));
+    } */
+
     return (
-        <div className={classNames(cls.ArticleList, {}, [className])}>
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {
                 articles?.length ? articles.map((art) => (
                     <ArticleListItem

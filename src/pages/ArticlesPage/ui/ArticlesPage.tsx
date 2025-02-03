@@ -14,6 +14,11 @@ const ad = {
     type: [
         'IT', 'NEWS', 'SINCE',
     ],
+    user: {
+        avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
+        username: 'Ulbi Tv',
+        id: '1',
+    },
     blocks: [
         {
             id: '1',
@@ -81,7 +86,7 @@ const ArticlesPage = () => {
 
     return (
         <div className={classNames(cls.ArticlesPage, {}, [])}>
-            <ArticleList articles={[ad]} view={ArticleView.SMALL} />
+            <ArticleList articles={new Array(9).fill(0).map((val) => ad)} view={ArticleView.BIG} />
         </div>
     );
 };
