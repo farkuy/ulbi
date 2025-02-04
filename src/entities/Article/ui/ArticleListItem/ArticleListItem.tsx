@@ -24,7 +24,7 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
-        className, article, view, isLoading,
+        className, article, view,
     } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
@@ -41,8 +41,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const goArticle = useCallback(() => {
         navigate(RoutePath.article_details + article.id);
     }, [navigate, article]);
-
-    if (isLoading) return <ArticleListItemLoading view={view} />;
 
     if (view === ArticleView.BIG) {
         const firstBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;

@@ -86,7 +86,7 @@ const ArticlesPage = () => {
 
     return (
         <div className={classNames(cls.ArticlesPage, {}, [])}>
-            <ArticleList articles={new Array(9).fill(0).map((val) => ad)} view={ArticleView.BIG} />
+            <ArticleList articles={new Array(9).fill(0).map((val) => ad)} view={ArticleView.BIG} isLoading />
         </div>
     );
 };

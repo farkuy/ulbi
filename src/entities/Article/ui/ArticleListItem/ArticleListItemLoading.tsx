@@ -2,6 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Container } from 'shared/ui/Container/Container';
+import { Icon } from 'shared/ui/Icon/Icon';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
+import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemLoadingProps {
@@ -44,6 +48,37 @@ export const ArticleListItemLoading = memo((props: ArticleListItemLoadingProps) 
     }
 
     return (
-        <></>
+        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+            <Container>
+                <div className={cls.imgWrapper}>
+                    <Skeleton
+                        width="100%"
+                        height={140}
+                        className={cls.img}
+                    />
+                </div>
+                <div className={cls.infoWrapper}>
+                    <Skeleton
+                        width={40}
+                        height={15}
+                    />
+                    <div className={cls.viewsWrapper}>
+                        <Skeleton
+                            width={40}
+                            height={15}
+                        />
+                        <Skeleton
+                            width={40}
+                            height={15}
+                        />
+                    </div>
+                </div>
+                <Skeleton
+                    width={100}
+                    height={25}
+                    className={cls.title}
+                />
+            </Container>
+        </div>
     );
 });

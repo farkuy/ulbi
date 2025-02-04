@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
+import { ArticleListItemLoading } from '../ArticleListItem/ArticleListItemLoading';
 
 interface ArticleListProps {
     className?: string;
@@ -16,9 +17,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className, articles, isLoading, view,
     } = props;
 
-    /* if (isLoading) {
-        return (new Array(9).fill(0).map((val) => <ArticleListItem />));
-    } */
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                {new Array(view === ArticleView.SMALL ? 12 : 6)
+                    .fill(0).map((val) => (<ArticleListItemLoading view={view} />))}
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
