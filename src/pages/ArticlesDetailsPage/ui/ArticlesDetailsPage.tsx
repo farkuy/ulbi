@@ -30,7 +30,6 @@ const ArticlesDetailsPage = () => {
     useStartEffect(() => dispatch(fetchCommentsByArticleId(id)));
 
     const onSendComment = useCallback(async (text: string) => {
-        console.log(2, text);
         await dispatch(sendArticleComment(text));
     }, [dispatch]);
 

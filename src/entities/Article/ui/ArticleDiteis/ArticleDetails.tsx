@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
@@ -10,6 +10,7 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
 
+import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { ArticleDetailsCode } from '../../ui/ArticleDiteis/ui/ArticleDetailsCode/ArticleDetailsCode';
 import { ArticleDetailsText } from '../../ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { ArticleDetailsImage } from '../../ui/ArticleDiteis/ui/ArticleDetailsImage/ArticleDetailsImage';
@@ -52,19 +53,17 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         }
     }, []);
 
-    useEffect(() => {
-        dispatch(fetchArticleDetails(+id));
-    }, [dispatch, id]);
+    useStartEffect(() => dispatch(fetchArticleDetails(+id)));
 
     if (isLoading) {
         return (
-            <>
+            <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 <Skeleton className={cls.avatar} height={200} width={200} borderRadius="50%" />
                 <Skeleton className={cls.title} height={32} width={300} />
                 <Skeleton className={cls.default_skeleton} height={24} width={600} />
                 <Skeleton className={cls.default_skeleton} height={200} width="100%" />
                 <Skeleton className={cls.default_skeleton} height={200} width="100%" />
-            </>
+            </div>
         );
     }
 
