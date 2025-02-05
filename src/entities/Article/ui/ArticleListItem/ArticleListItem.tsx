@@ -10,7 +10,6 @@ import { Button } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { ArticleListItemLoading } from 'entities/Article/ui/ArticleListItem/ArticleListItemLoading';
 import { ArticleDetailsText } from '../../ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { ArticleBlockType, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
@@ -24,7 +23,7 @@ interface ArticleListItemProps {
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
-        className, article, view,
+        className, article, view, isLoading,
     } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
