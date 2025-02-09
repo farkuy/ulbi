@@ -22,6 +22,8 @@ import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useParams } from 'react-router-dom';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
+import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import cls from './ProfilePage.module.scss';
 
 const initialReducer:ReducersList = {
     profile: profileReducer,
@@ -85,28 +87,31 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
 
     return (
         <DynamicModuleReducer reducers={initialReducer}>
-            <div>
-                {t('PROFILE_PAGE')}
-            </div>
-            <ProfileCardHeader readOnly={readOnly} />
-            {
-                validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={translateError[err]} key={err} />))
-            }
-            <ProfileCard
-                profileData={profileForm}
-                isLoading={isLoading}
-                error={error}
-                textPos={TextPos.LEFT}
-                readOnly={readOnly}
-                onChangeFirstName={onChangeFirstName}
-                onChangeLastName={onChangeLastName}
-                onChangePlace={onChangePlace}
-                onChangeAge={onChangeAge}
-                onChangeUserName={onChangeUserName}
-                onChangeAvatar={onChangeAvatar}
-                onChangeCurrency={onChangeCurrency}
-                onChangeCountry={onChangeCountry}
-            />
+            <PageWrapper className={cls.ProfilePage}>
+                <div>
+                    {t('PROFILE_PAGE')}
+                </div>
+                <ProfileCardHeader readOnly={readOnly} />
+                {
+                    validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={translateError[err]} key={err} />))
+                }
+                <ProfileCard
+                    profileData={profileForm}
+                    isLoading={isLoading}
+                    error={error}
+                    textPos={TextPos.LEFT}
+                    readOnly={readOnly}
+                    onChangeFirstName={onChangeFirstName}
+                    onChangeLastName={onChangeLastName}
+                    onChangePlace={onChangePlace}
+                    onChangeAge={onChangeAge}
+                    onChangeUserName={onChangeUserName}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                />
+            </PageWrapper>
+
         </DynamicModuleReducer>
 
     );

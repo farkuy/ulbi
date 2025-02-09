@@ -34,7 +34,7 @@ export const AddComment = memo((props: AddCommentProps) => {
     const onSendHandler = useCallback(() => {
         onSendComment(commentText || '');
         onCommentTextChange('');
-    }, [onSendComment, commentText]);
+    }, [onSendComment, onCommentTextChange, commentText]);
 
     return (
         <div style={{ padding: 20 }}>

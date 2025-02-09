@@ -9,6 +9,7 @@ import { getArticlesView } from 'pages/ArticlesPage/model/selectors/getArticles/
 import { ArticleView } from 'entities/Article';
 import { articlesAction } from 'pages/ArticlesPage/model/slice/articlesPageslice';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { fetchArticles } from 'pages/ArticlesPage/model/service/fetchArticles';
 import cls from './ToggleArticlesView.module.scss';
 
 interface ToggleArticlesViewProps {

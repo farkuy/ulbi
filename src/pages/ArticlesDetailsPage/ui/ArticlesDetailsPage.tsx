@@ -9,6 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { AddComment } from 'features/AddComment';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
+import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { sendArticleComment } from '../model/service/fetchCooments/sendArticleComment';
 import {
     getArticleDetailsCommentLoading,
@@ -35,22 +36,22 @@ const ArticlesDetailsPage = () => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.ArticlesDetailsPage, {}, [])}>
+            <PageWrapper className={classNames(cls.ArticlesDetailsPage, {}, [])}>
                 {t('Article_Not_Found')}
-            </div>
+            </PageWrapper>
         );
     }
 
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>
-            <div className={classNames(cls.ArticlesDetailsPage, {}, [])}>
+            <PageWrapper className={classNames(cls.ArticlesDetailsPage, {}, [])}>
                 <ArticleDetails id={id} />
                 <AddComment onSendComment={onSendComment} />
                 <CommentList
                     isLoading={!!commentsLoading}
                     comments={comments}
                 />
-            </div>
+            </PageWrapper>
         </DynamicModuleReducer>
     );
 };

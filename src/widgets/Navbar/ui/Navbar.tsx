@@ -31,24 +31,24 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (userData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <Button
                     onClick={logout}
                 >
                     {t('LOGOUT')}
                 </Button>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <Button
                 onClick={onOpenModal}
             >
                 {t('auth')}
             </Button>
             {isAuthModal && <LoginModal closeModal={onCloseModal} isOpen={isAuthModal} />}
-        </div>
+        </header>
     );
 });
