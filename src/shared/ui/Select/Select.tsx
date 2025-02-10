@@ -25,7 +25,10 @@ export const Select = memo((props: SelectProps) => {
         if (onChange) onChange(e.target.value);
     };
 
-    const allOptions = useMemo(() => options.map((opt) => <option key={opt.value} value={opt.value} label={opt.label} />), [options]);
+    const allOptions = useMemo(
+        () => options.map((opt) => <option key={opt.value} value={opt.value} label={opt.label} />),
+        [options],
+    );
 
     return (
         <div className={classNames(cls.Select, {}, [className])}>

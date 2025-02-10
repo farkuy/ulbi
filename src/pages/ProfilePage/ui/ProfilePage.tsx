@@ -93,7 +93,8 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
                 </div>
                 <ProfileCardHeader readOnly={readOnly} />
                 {
-                    validateError?.map((err) => (<Text theme={ThemeText.ERROR} title={translateError[err]} key={err} />))
+                    validateError?.map((err) => (
+                        <Text theme={ThemeText.ERROR} title={translateError[err]} key={err} />))
                 }
                 <ProfileCard
                     profileData={profileForm}
