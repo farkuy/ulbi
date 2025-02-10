@@ -31,7 +31,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
             }
             {
                 isLoading && new Array(view === ArticleView.SMALL ? 12 : 6)
-                    .fill(0).map((val) => (<ArticleListItemLoading view={view} />))
+                    // eslint-disable-next-line react/no-array-index-key
+                    .fill(0).map((val, index) => (<ArticleListItemLoading key={index} view={view} />))
             }
         </div>
     );

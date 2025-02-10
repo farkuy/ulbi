@@ -9,7 +9,6 @@ import { getArticlesView } from 'pages/ArticlesPage/model/selectors/getArticles/
 import { ArticleView } from 'entities/Article';
 import { articlesAction } from 'pages/ArticlesPage/model/slice/articlesPageslice';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { fetchArticles } from 'pages/ArticlesPage/model/service/fetchArticles';
 import cls from './ToggleArticlesView.module.scss';
 
 interface ToggleArticlesViewProps {
@@ -39,7 +38,7 @@ export const ToggleArticlesView = memo((props: ToggleArticlesViewProps) => {
     return (
         <div className={classNames(cls.ToggleArticlesView, {}, [className])}>
             {variablesView.map(({ type, svg }) => (
-                <Button onClick={() => onChangeView(type)} theme={ButtonTheme.CLEAR}>
+                <Button key={type} onClick={() => onChangeView(type)} theme={ButtonTheme.CLEAR}>
                     <Icon
                         Svg={svg}
                         key={type}

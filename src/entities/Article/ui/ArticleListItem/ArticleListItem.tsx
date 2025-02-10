@@ -32,7 +32,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const tags = useMemo(() => (
         <div className={cls.tags}>
             {article.type.map((typ) => (
-                <p>{typ}</p>
+                <p key={typ}>{typ}</p>
             ))}
         </div>
     ), [article.type]);
