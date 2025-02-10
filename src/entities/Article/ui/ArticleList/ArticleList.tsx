@@ -17,15 +17,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className, articles, isLoading, view,
     } = props;
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {new Array(view === ArticleView.SMALL ? 12 : 6)
-                    .fill(0).map((val) => (<ArticleListItemLoading view={view} />))}
-            </div>
-        );
-    }
-
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {
@@ -37,6 +28,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         isLoading
                     />
                 )) : null
+            }
+            {
+                isLoading && new Array(view === ArticleView.SMALL ? 12 : 6)
+                    .fill(0).map((val) => (<ArticleListItemLoading view={view} />))
             }
         </div>
     );

@@ -75,7 +75,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <div onClick={goArticle} className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <Container>
+            <Container className={cls.containerWrapper}>
                 <div className={cls.imgWrapper}>
                     <img src={article.img} alt={article.title} className={cls.img} />
                     {createdAt}

@@ -3,6 +3,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
 import { Article, ArticleView } from 'entities/Article';
 import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
+import { action } from '@storybook/addon-actions';
 import { ArticlesPagesSchema } from '../types/articlesPage';
 import { fetchArticles } from '../service/fetchArticles';
 
@@ -38,6 +39,9 @@ const articlesSlice = createSlice({
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
         },
+        setMore: (state, action: PayloadAction<boolean>) => {
+            state.hasMore = action.payload;
+        },
     },
     extraReducers: (builder) => {
         builder.addCase(fetchArticles.pending, (state) => {
@@ -46,7 +50,8 @@ const articlesSlice = createSlice({
         builder.addCase(fetchArticles.fulfilled, (state, { payload }: PayloadAction<Article[]>) => {
             state.isLoading = false;
             state.error = undefined;
-            articlesAdapter.setAll(state, payload);
+            articlesAdapter.addMany(state, payload);
+            state.hasMore = payload.length > 0;
         });
         builder.addCase(fetchArticles.rejected, (state) => {
             state.isLoading = false;

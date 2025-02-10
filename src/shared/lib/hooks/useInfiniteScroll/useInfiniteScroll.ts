@@ -28,5 +28,5 @@ export const useInfiniteScroll = <T extends Element>(props: useInfiniteScrollPro
         return () => {
             if (targetRef) observer.disconnect();
         };
-    }, []);
+    }, [callback, targetRef, wrapperRef]);
 };

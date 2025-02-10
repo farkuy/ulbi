@@ -1,14 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useRef } from 'react';
+import { memo, useCallback, useRef } from 'react';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
-import { getArticlesLoading, getArticlesView } from 'pages/ArticlesPage/model/selectors/getArticles/getArticles';
 import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
+import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
 import { fetchArticles } from '../model/service/fetchArticles';
 import { articlesReducer, getArticles } from '../model/slice/articlesPageslice';
 import cls from './ArticlesPage.module.scss';
@@ -25,7 +26,11 @@ const ArticlesPage = () => {
     const parent = useRef<HTMLDivElement | null>(null);
     const end = useRef<HTMLDivElement | null>(null);
 
-    useInfiniteScroll({ callback: () => console.log('дошли'), targetRef: end, wrapperRef: parent });
+    const onScrollEnd = useCallback(async () => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
+    useInfiniteScroll({ callback: onScrollEnd, targetRef: end, wrapperRef: parent });
 
     useStartEffect(() => dispatch(fetchArticles({ page: 1 })));
 
@@ -34,7 +39,7 @@ const ArticlesPage = () => {
             <PageWrapper className={classNames(cls.ArticlesPage, {}, [])} ref={parent}>
                 <ToggleArticlesView />
                 <ArticleList articles={articles} view={view || ArticleView.SMALL} isLoading={isLoading} />
-                <div ref={end}>тут</div>
+                <div ref={end} />
             </PageWrapper>
         </DynamicModuleReducer>
     );
