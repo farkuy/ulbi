@@ -9,7 +9,7 @@ import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import { initeArticlesPage } from '../model/service/initeArticlesPage';
-import { getArticlesInited, getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
+import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
 import { articlesReducer, getArticles } from '../model/slice/articlesPageslice';
 import cls from './ArticlesPage.module.scss';
@@ -35,7 +35,7 @@ const ArticlesPage = () => {
     useStartEffect(() => dispatch(initeArticlesPage()));
 
     return (
-        <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>
+        <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount={false}>
             <PageWrapper className={classNames(cls.ArticlesPage, {}, [])} ref={parent}>
                 <ToggleArticlesView />
                 <ArticleList articles={articles} view={view || ArticleView.SMALL} isLoading={isLoading} />
