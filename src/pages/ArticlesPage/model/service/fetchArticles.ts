@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
 import { getArticlesLimit } from 'pages/ArticlesPage/model/selectors/getArticles/getArticles';
+import { articlesAction, articlesReducer } from 'pages/ArticlesPage/model/slice/articlesPageslice';
 
 interface FetchArticleListProps {
     page?: number;
@@ -11,7 +12,7 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticleListProps, 
     'articlesPage/fetchArticles',
     async (props, thunkAPI) => {
         const {
-            rejectWithValue, extra, getState,
+            rejectWithValue, extra, getState, dispatch,
         } = thunkAPI;
         const { page = 1 } = props;
         const limit = getArticlesLimit(getState());
@@ -27,6 +28,8 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticleListProps, 
             if (!response.data) {
                 return rejectWithValue('server error');
             }
+
+            dispatch(articlesAction.setInited(true));
 
             return response.data;
         } catch (e) {

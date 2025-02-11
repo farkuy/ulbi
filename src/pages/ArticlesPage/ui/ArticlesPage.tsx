@@ -8,9 +8,9 @@ import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
+import { initeArticlesPage } from '../model/service/initeArticlesPage';
+import { getArticlesInited, getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
-import { fetchArticles } from '../model/service/fetchArticles';
 import { articlesReducer, getArticles } from '../model/slice/articlesPageslice';
 import cls from './ArticlesPage.module.scss';
 
@@ -32,7 +32,7 @@ const ArticlesPage = () => {
 
     useInfiniteScroll({ callback: onScrollEnd, targetRef: end, wrapperRef: parent });
 
-    useStartEffect(() => dispatch(fetchArticles({ page: 1 })));
+    useStartEffect(() => dispatch(initeArticlesPage()));
 
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>

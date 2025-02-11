@@ -3,7 +3,6 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
 import { Article, ArticleView } from 'entities/Article';
 import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
-import { action } from '@storybook/addon-actions';
 import { ArticlesPagesSchema } from '../types/articlesPage';
 import { fetchArticles } from '../service/fetchArticles';
 
@@ -28,6 +27,7 @@ const articlesSlice = createSlice({
         page: 1,
         hasMore: true,
         limit: initialView === ArticleView.BIG ? 4 : 9,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -41,6 +41,9 @@ const articlesSlice = createSlice({
         },
         setMore: (state, action: PayloadAction<boolean>) => {
             state.hasMore = action.payload;
+        },
+        setInited: (state, action: PayloadAction<boolean>) => {
+            state._inited = action.payload;
         },
     },
     extraReducers: (builder) => {
