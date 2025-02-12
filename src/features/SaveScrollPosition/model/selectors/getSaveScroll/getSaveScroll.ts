@@ -5,4 +5,4 @@ export const getSaveScroll = (state: StateSchema) => state?.scrollSave?.scrollSa
 export const getScrollValueByKey = (
     state: StateSchema,
     key: keyStateSchema,
-): number | undefined => state?.scrollSave?.scrollSave?.[key];
+): number => state?.scrollSave?.scrollSave?.[key] ?? 0;
