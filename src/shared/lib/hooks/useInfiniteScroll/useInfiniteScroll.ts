@@ -1,7 +1,7 @@
 import { MutableRefObject, useEffect } from 'react';
 
 interface useInfiniteScrollProps<E extends Element> {
-    callback: () => void,
+    callback?: () => void,
     targetRef: MutableRefObject<E | null>,
 
     wrapperRef: MutableRefObject<E | null>,
@@ -14,7 +14,7 @@ export const useInfiniteScroll = <T extends Element>(props: useInfiniteScrollPro
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) {
-                    callback();
+                    callback?.();
                 }
             },
             {

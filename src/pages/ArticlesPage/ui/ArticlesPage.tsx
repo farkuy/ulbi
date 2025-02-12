@@ -1,7 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    memo, UIEvent, useCallback, useEffect, useRef,
-} from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -9,9 +7,6 @@ import { useSelector } from 'react-redux';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { getScrollValueByKey, scrollSaveActions } from 'features/SaveScrollPosition';
-import { StateSchema } from 'app/providers/StoreProvider';
 import { initeArticlesPage } from '../model/service/initeArticlesPage';
 import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
@@ -27,26 +22,21 @@ const ArticlesPage = () => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesLoading);
     const view = useSelector(getArticlesView);
-    const parent = useRef<HTMLDivElement | null>(null);
-    const end = useRef<HTMLDivElement | null>(null);
 
     const onScrollEnd = useCallback(async () => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
-
-    useInfiniteScroll({ callback: onScrollEnd, targetRef: end, wrapperRef: parent });
 
     useStartEffect(() => dispatch(initeArticlesPage()));
 
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount={false}>
             <PageWrapper
+                onScrollEnd={onScrollEnd}
                 className={classNames(cls.ArticlesPage, {}, [])}
-                ref={parent}
             >
                 <ToggleArticlesView />
                 <ArticleList articles={articles} view={view || ArticleView.SMALL} isLoading={isLoading} />
-                <div ref={end} />
             </PageWrapper>
         </DynamicModuleReducer>
     );
