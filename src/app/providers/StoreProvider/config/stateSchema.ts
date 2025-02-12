@@ -12,10 +12,12 @@ import { ArticleSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'pages/ArticlesDetailsPage';
 import { AddCommentSchema } from 'features/AddComment';
 import { ArticlesPagesSchema } from 'pages/ArticlesPage';
+import { SaveScrollSchema } from 'features/SaveScrollPosition';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
+    scrollSave: SaveScrollSchema
 
     // Необязательные стейты
     login?: LoginSchema,

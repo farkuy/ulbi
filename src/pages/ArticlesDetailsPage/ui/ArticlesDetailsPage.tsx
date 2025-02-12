@@ -9,7 +9,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { AddComment } from 'features/AddComment';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
-import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { sendArticleComment } from '../model/service/fetchCooments/sendArticleComment';
 import {
     getArticleDetailsCommentLoading,

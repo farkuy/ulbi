@@ -4,12 +4,14 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $axios } from 'shared/api/api';
 import { CombinedState } from 'redux';
+import { scrollSaveReducer } from 'features/SaveScrollPosition';
 import { StateSchema } from './stateSchema';
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducer: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
+        scrollSave: scrollSaveReducer,
     };
 
     const reduceManager = createReducerManager(rootReducer);

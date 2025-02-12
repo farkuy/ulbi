@@ -22,7 +22,7 @@ import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { ValidateProfileError } from 'entities/Profile/model/types/profile';
 import { useParams } from 'react-router-dom';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
-import { PageWrapper } from 'shared/ui/PageWrapper/PageWrapper';
+import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import cls from './ProfilePage.module.scss';
 
 const initialReducer:ReducersList = {
