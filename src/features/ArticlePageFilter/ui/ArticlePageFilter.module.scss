@@ -1,6 +1,14 @@
 .ArticlePageFilter {
     display: flex;
+    flex-direction: column;
     align-content: center;
     justify-content: start;
     gap: 40px;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
 }
