@@ -12,6 +12,8 @@ import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
 import { SortOrder } from 'shared/types/sort';
 import { ArticlesSort } from 'pages/ArticlesPage/model/types/articlesPage';
+import { useDebouncer } from 'shared/lib/hooks/useDebouncer/useDebouncer';
+import { fetchArticles } from 'pages/ArticlesPage/model/service/fetchArticles';
 import { ArticleSort } from './components/ArticleSort/ArticleSort';
 import cls from './ArticlePageFilter.module.scss';
 
@@ -28,21 +30,28 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
     const order = useSelector(getArticlesOrder);
     const sort = useSelector(getArticlesSort);
 
+    const updateRequest = useCallback(() => {
+        dispatch(articlesAction.setPage(1));
+        dispatch(fetchArticles({ page: 1, isNewFilter: true }));
+    }, [dispatch]);
+
     const onChangeView = useCallback((view: ArticleView) => {
         dispatch(articlesAction.setView(view));
     }, [dispatch]);
 
-    const onSearch = useCallback((value: string) => {
+    const onSearch = useDebouncer((value: string) => {
         dispatch(articlesAction.setSearch(value));
-    }, [dispatch]);
+    }, 500);
 
     const onChangeSort = useCallback((value: ArticlesSort) => {
         dispatch(articlesAction.setSort(value));
-    }, [dispatch]);
+        updateRequest();
+    }, [dispatch, updateRequest]);
 
     const onChangeOrder = useCallback((value: SortOrder) => {
         dispatch(articlesAction.setOrder(value));
-    }, [dispatch]);
+        updateRequest();
+    }, [dispatch, updateRequest]);
 
     return (
         <div className={classNames(cls.ArticlePageFilter, {}, [className])}>
@@ -50,7 +59,7 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
                 <ToggleArticlesView view={view} onChangeView={onChangeView} />
                 <ArticleSort sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
             </div>
-            <Input value={search} onChange={onSearch} placeholder={t('SEARCH')} />
+            <Input value={search} onChange={(le: string) => console.log(2)} placeholder={t('SEARCH')} />
         </div>
     );
 };

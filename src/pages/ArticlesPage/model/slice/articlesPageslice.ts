@@ -5,7 +5,7 @@ import { Article, ArticleView } from 'entities/Article';
 import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
 import { SortOrder } from 'shared/types/sort';
 import { ArticlesPagesSchema, ArticlesSort } from '../types/articlesPage';
-import { fetchArticles } from '../service/fetchArticles';
+import { FetchArticleListProps, fetchArticles } from '../service/fetchArticles';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (comment) => comment.id,
@@ -38,7 +38,6 @@ const articlesSlice = createSlice({
             state.view = action.payload;
             state.limit = action.payload === ArticleView.BIG ? 4 : 9;
             localStorage.setItem(SHOW_MOD_ARTICLE_VIEW, action.payload);
-            fetchArticles({ page: state.page });
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
@@ -63,11 +62,14 @@ const articlesSlice = createSlice({
         builder.addCase(fetchArticles.pending, (state) => {
             state.isLoading = true;
         });
-        builder.addCase(fetchArticles.fulfilled, (state, { payload }: PayloadAction<Article[]>) => {
+        builder.addCase(fetchArticles.fulfilled, (state, action: PayloadAction<Article[], string, any>) => {
             state.isLoading = false;
             state.error = undefined;
-            articlesAdapter.addMany(state, payload);
-            state.hasMore = payload.length > 0;
+
+            if (action.meta.arg.isNewFilter) articlesAdapter.removeAll(state);
+            articlesAdapter.addMany(state, action.payload);
+
+            state.hasMore = action.payload.length > 0;
         });
         builder.addCase(fetchArticles.rejected, (state) => {
             state.isLoading = false;
