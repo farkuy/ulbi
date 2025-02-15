@@ -1,18 +1,16 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
+import { memo } from 'react';
 import ListIcon from 'shared/assets/icons/list-24-24.svg';
 import TiledIcon from 'shared/assets/icons/tiled-24-24.svg';
 import { Icon } from 'shared/ui/Icon/Icon';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
-import { getArticlesView } from 'pages/ArticlesPage/model/selectors/getArticles/getArticles';
 import { ArticleView } from 'entities/Article';
-import { articlesAction } from 'pages/ArticlesPage/model/slice/articlesPageslice';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './ToggleArticlesView.module.scss';
 
 interface ToggleArticlesViewProps {
     className?: string;
+    view: ArticleView;
+    onChangeView: (view: ArticleView) => void;
 }
 
 const variablesView = [
@@ -27,13 +25,7 @@ const variablesView = [
 ];
 
 export const ToggleArticlesView = memo((props: ToggleArticlesViewProps) => {
-    const { className } = props;
-    const view = useSelector(getArticlesView);
-    const dispatch = useAppDispatch();
-
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesAction.setView(view));
-    }, [dispatch]);
+    const { className, view, onChangeView } = props;
 
     return (
         <div className={classNames(cls.ToggleArticlesView, {}, [className])}>

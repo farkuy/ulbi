@@ -11,7 +11,7 @@ interface CountrySelectProps {
     readonly?: boolean;
 }
 
-const allCountry: IOptions[] = [
+const allCountry: IOptions<COUNTRY>[] = [
     { value: COUNTRY.RUSSIA, label: COUNTRY.RUSSIA },
     { value: COUNTRY.GERMANY, label: COUNTRY.GERMANY },
     { value: COUNTRY.USA, label: COUNTRY.USA },
@@ -23,8 +23,8 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
         className, value, onChangeCountry, readonly,
     } = props;
 
-    const onChange = (value: string) => {
-        if (onChangeCountry) onChangeCountry(value as COUNTRY);
+    const onChange = (value: COUNTRY) => {
+        if (onChangeCountry) onChangeCountry(value);
     };
 
     return (

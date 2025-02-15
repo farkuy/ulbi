@@ -5,8 +5,8 @@ import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
-import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
+import { ArticlePageFilter } from 'features/ArticlePageFilter';
 import { initeArticlesPage } from '../model/service/initeArticlesPage';
 import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
@@ -35,7 +35,7 @@ const ArticlesPage = () => {
                 onScrollEnd={onScrollEnd}
                 className={classNames(cls.ArticlesPage, {}, [])}
             >
-                <ToggleArticlesView />
+                <ArticlePageFilter />
                 <ArticleList articles={articles} view={view || ArticleView.SMALL} isLoading={isLoading} />
             </PageWrapper>
         </DynamicModuleReducer>

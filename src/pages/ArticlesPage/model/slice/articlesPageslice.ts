@@ -3,7 +3,8 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
 import { Article, ArticleView } from 'entities/Article';
 import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
-import { ArticlesPagesSchema } from '../types/articlesPage';
+import { SortOrder } from 'shared/types/sort';
+import { ArticlesPagesSchema, ArticlesSort } from '../types/articlesPage';
 import { fetchArticles } from '../service/fetchArticles';
 
 const articlesAdapter = createEntityAdapter<Article>({
@@ -27,6 +28,9 @@ const articlesSlice = createSlice({
         page: 1,
         hasMore: true,
         limit: initialView === ArticleView.BIG ? 4 : 9,
+        search: '',
+        sort: ArticlesSort.CREATED,
+        order: 'asc',
         _inited: false,
     }),
     reducers: {
@@ -44,6 +48,15 @@ const articlesSlice = createSlice({
         },
         setInited: (state, action: PayloadAction<boolean>) => {
             state._inited = action.payload;
+        },
+        setSearch: (state, action: PayloadAction<string>) => {
+            state.search = action.payload;
+        },
+        setSort: (state, action: PayloadAction<ArticlesSort>) => {
+            state.sort = action.payload;
+        },
+        setOrder: (state, action: PayloadAction<SortOrder>) => {
+            state.order = action.payload;
         },
     },
     extraReducers: (builder) => {

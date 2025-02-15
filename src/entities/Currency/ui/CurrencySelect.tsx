@@ -11,7 +11,7 @@ interface CurrencySelectProps {
     readonly?: boolean;
 }
 
-const allCurrency: IOptions[] = [
+const allCurrency: IOptions<CURRENCY>[] = [
     { value: CURRENCY.RUB, label: 'RUB' },
     { value: CURRENCY.EUR, label: 'EUR' },
     { value: CURRENCY.USD, label: 'USD' },
