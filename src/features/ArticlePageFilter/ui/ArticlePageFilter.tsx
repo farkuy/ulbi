@@ -59,7 +59,7 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
                 <ToggleArticlesView view={view} onChangeView={onChangeView} />
                 <ArticleSort sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
             </div>
-            <Input value={search} onChange={(le: string) => console.log(2)} placeholder={t('SEARCH')} />
+            <Input value={search} onChange={onSearch} placeholder={t('SEARCH')} />
         </div>
     );
 };
