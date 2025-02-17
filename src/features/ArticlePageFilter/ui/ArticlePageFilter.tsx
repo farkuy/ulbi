@@ -39,9 +39,14 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
         dispatch(articlesAction.setView(view));
     }, [dispatch]);
 
-    const onSearch = useDebouncer((value: string) => {
-        dispatch(articlesAction.setSearch(value));
+    const onSearch = useDebouncer(() => {
+        updateRequest();
     }, 500);
+
+    const onInput = useCallback((value: string) => {
+        dispatch(articlesAction.setSearch(value));
+        onSearch();
+    }, [dispatch, onSearch]);
 
     const onChangeSort = useCallback((value: ArticlesSort) => {
         dispatch(articlesAction.setSort(value));
@@ -59,7 +64,7 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = (props) => {
                 <ToggleArticlesView view={view} onChangeView={onChangeView} />
                 <ArticleSort sort={sort} order={order} onChangeSort={onChangeSort} onChangeOrder={onChangeOrder} />
             </div>
-            <Input value={search} onChange={onSearch} placeholder={t('SEARCH')} />
+            <Input value={search} onChange={onInput} placeholder={t('SEARCH')} />
         </div>
     );
 };
