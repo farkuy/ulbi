@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
@@ -10,11 +10,12 @@ interface ArticleListProps {
     articles?: Article[];
     isLoading?: boolean;
     view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
-        className, articles, isLoading, view,
+        className, articles, isLoading, view, target,
     } = props;
 
     return (
@@ -26,6 +27,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         key={art.id}
                         view={view}
                         isLoading
+                        target={target}
                     />
                 )) : null
             }

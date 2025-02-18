@@ -9,7 +9,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router';
 import { ArticleSchema } from 'entities/Article';
-import { ArticleDetailsCommentSchema } from 'pages/ArticlesDetailsPage';
+import { ArticleDetailsCommentSchema, ArticleDetailsRecommendationSchema } from 'pages/ArticlesDetailsPage';
 import { AddCommentSchema } from 'features/AddComment';
 import { ArticlesPagesSchema } from 'pages/ArticlesPage';
 import { SaveScrollSchema } from 'features/SaveScrollPosition';
@@ -24,6 +24,7 @@ export interface StateSchema {
     profile?: ProfileSchema,
     articleDetails?: ArticleSchema,
     articleDetailsComments?: ArticleDetailsCommentSchema,
+    articleRecomends?: ArticleDetailsRecommendationSchema,
     addComment?: AddCommentSchema,
     articlesPage?: ArticlesPagesSchema,
 }

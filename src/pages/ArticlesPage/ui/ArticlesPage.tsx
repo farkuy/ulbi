@@ -25,6 +25,8 @@ const ArticlesPage = () => {
     const view = useSelector(getArticlesView);
     const [searchParams, setSearchParams] = useSearchParams();
 
+    console.log(articles);
+
     const onScrollEnd = useCallback(async () => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
