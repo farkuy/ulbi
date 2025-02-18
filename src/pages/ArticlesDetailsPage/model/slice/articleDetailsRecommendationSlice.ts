@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
 import { Article } from 'entities/Article';
-import { ArticleDetailsRecommendationSchema } from 'pages/ArticlesDetailsPage';
+import { ArticleDetailsRecommendationSchema } from '../types/articleDetailsRecommendationSchema';
 import { fetchArticleRecommend } from '../service/fetchArticleRecommend/fetchArticleRecommend';
 
 const recomendAdapter = createEntityAdapter<Article>({
@@ -10,7 +10,7 @@ const recomendAdapter = createEntityAdapter<Article>({
 });
 
 export const getArticleRecommend = recomendAdapter.getSelectors<StateSchema>(
-    (state) => state.articleRecomends || recomendAdapter.getInitialState(),
+    (state) => state.articleDetailsPage?.recommendation || recomendAdapter.getInitialState(),
 );
 
 const articleRecommendsSlice = createSlice({

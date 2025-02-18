@@ -11,6 +11,7 @@ import { AddComment } from 'features/AddComment';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { articleDetailsPageReducer } from '../model/slice';
 import { fetchArticleRecommend } from '../model/service/fetchArticleRecommend/fetchArticleRecommend';
 import { getArticleRecommendLoading } from '../model/selectors/getArticleRecommends/getArticleRecommends';
 import { sendArticleComment } from '../model/service/fetchCooments/sendArticleComment';
@@ -18,13 +19,12 @@ import {
     getArticleDetailsCommentLoading,
 } from '../model/selectors/getArticleDetailsCommentInfo/getArticleDetailsCommentInfo';
 import { fetchCommentsByArticleId } from '../model/service/fetchCooments/fetchComments';
-import { articleDetailsCommentsReducer, getArticleComments } from '../model/slice/articleDetailsCommentSlice';
+import { getArticleComments } from '../model/slice/articleDetailsCommentSlice';
 import cls from './ArticlesDetailsPage.module.scss';
-import { articleRecommendsReducer, getArticleRecommend } from '../model/slice/articleDetailsRecommendationSlice';
+import { getArticleRecommend } from '../model/slice/articleDetailsRecommendationSlice';
 
 const initialReducer: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
-    articleRecomends: articleRecommendsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 const ArticlesDetailsPage = () => {
     const { t } = useTranslation();
