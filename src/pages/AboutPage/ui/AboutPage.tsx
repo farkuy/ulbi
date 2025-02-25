@@ -6,9 +6,7 @@ const AboutPage = () => {
     const { t } = useTranslation('about');
 
     return (
-        <ProfilePage>
-            {t('О сайте')}
-        </ProfilePage>
+        <ProfilePage />
     );
 };
 
