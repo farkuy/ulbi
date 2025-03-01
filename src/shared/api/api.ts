@@ -3,7 +3,9 @@ import { USER_AUTH_TOKEN } from 'shared/consts/auth';
 
 export const $axios = axios.create({
     baseURL: __API__,
-    headers: {
-        authorization: localStorage.getItem(USER_AUTH_TOKEN),
-    },
+});
+
+$axios.interceptors.request.use((config) => {
+    if (config.headers) config.headers.Authorization = localStorage.getItem(USER_AUTH_TOKEN);
+    return config;
 });
