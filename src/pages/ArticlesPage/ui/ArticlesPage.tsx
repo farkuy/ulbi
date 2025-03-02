@@ -31,6 +31,8 @@ const ArticlesPage = () => {
 
     useStartEffect(() => dispatch(initeArticlesPage(searchParams)));
 
+    console.log(3333, articles);
+
     return (
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount={false}>
             <PageWrapper

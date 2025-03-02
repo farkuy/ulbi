@@ -1,6 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import {
+    HTMLAttributeAnchorTarget, memo, useCallback, useRef,
+} from 'react';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { WindowScroller } from 'react-virtualized';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
@@ -18,6 +21,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const {
         className, articles, isLoading, view, target,
     } = props;
+    const list = useRef<any>(null);
+    const onScroll = useCallback(({ scrollTop }) => {
+        list.current?.scrollTo(scrollTop);
+    }, []);
 
     const row = ({ index }: ListChildComponentProps) => {
         if (isLoading) {
@@ -26,7 +33,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
         const article = articles?.[index];
         return (
-            <div key={index}>
+            <div key={article?.id}>
                 {article ? (
                     <ArticleListItem
                         article={article}
@@ -43,15 +50,24 @@ export const ArticleList = memo((props: ArticleListProps) => {
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {
                 articles?.length ? (
-                    <FixedSizeList
-                        height={1500}
-                        itemSize={650}
-                        itemCount={isLoading ? Math.max(articles.length, 12) : articles.length} // Количество элементов
-                        width="100%"
+                    <WindowScroller onScroll={onScroll}>
+                        {({
+                            height, scrollTop, width,
+                        }) => (
+                            <FixedSizeList
+                                ref={list}
+                                itemSize={700}
+                                itemCount={articles.length}
+                                width="100%"
+                                height={height}
+                                scrollTop={scrollTop}
+                                style={{ height: '100% !important' }}
+                            >
+                                {row}
+                            </FixedSizeList>
+                        )}
+                    </WindowScroller>
 
-                    >
-                        {row}
-                    </FixedSizeList>
                 ) : null
             }
             {
