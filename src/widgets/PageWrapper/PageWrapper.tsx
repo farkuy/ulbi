@@ -20,7 +20,7 @@ interface PageWrapperProps extends Omit<HTMLProps<HTMLDivElement>, 'className' |
 
 export const PageWrapper = memo((props: PageWrapperProps) => {
     const {
-        className, children, onScrollEnd, ...otherProps
+        className, children, onScrollEnd, id, ...otherProps
     } = props;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
@@ -48,6 +48,7 @@ export const PageWrapper = memo((props: PageWrapperProps) => {
             className={classNames(cls.PageWrapper, {}, [className])}
             onScroll={onScroll}
             ref={parent}
+            id={id}
             {...otherProps}
         >
             {children}
