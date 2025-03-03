@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
 import { VirtualList } from 'features/VirtualList/ui/VirtualList';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
@@ -30,8 +30,31 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
 
+    const row = (index: number): ReactNode => {
+        /* if (articles) {
+            return (
+                <ArticleListItem
+                    article={articles[index]}
+                    key={articles[index].id}
+                    view={view}
+                    isLoading
+                    target={target}
+                />
+            );
+        } */
+        console.log('articles', index, articles[index]);
+        return <div />;
+    };
+
     return (
-        <VirtualList id={id} className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <VirtualList
+            id={id}
+            listSize={articles?.length}
+            itemHeight={631}
+            height={747}
+            row={row}
+            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        >
             {articles && articles.map((art) => (
                 <ArticleListItem
                     article={art}
