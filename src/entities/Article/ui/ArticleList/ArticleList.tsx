@@ -24,14 +24,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                 {new Array(view === ArticleView.SMALL ? 12 : 6)
-                // eslint-disable-next-line react/no-array-index-key
+                    // eslint-disable-next-line react/no-array-index-key
                     .fill(0).map((val, index) => (<ArticleListItemLoading key={index} view={view} />))}
             </div>
         );
     }
 
     const row = (index: number): ReactNode => {
-        /* if (articles) {
+        if (articles && articles[index]) {
             return (
                 <ArticleListItem
                     article={articles[index]}
@@ -41,9 +41,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     target={target}
                 />
             );
-        } */
-        console.log('articles', index, articles[index]);
-        return <div />;
+        }
+        return <div style={{ width: '100%' }} />;
     };
 
     return (
@@ -54,16 +53,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
             height={747}
             row={row}
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-        >
-            {articles && articles.map((art) => (
-                <ArticleListItem
-                    article={art}
-                    key={art.id}
-                    view={view}
-                    isLoading
-                    target={target}
-                />
-            ))}
-        </VirtualList>
+        />
     );
 });

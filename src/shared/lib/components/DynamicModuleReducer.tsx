@@ -10,10 +10,13 @@ export type ReducersList = {
 interface DynamicModuleReducerProps {
     reducers: ReducersList;
     deleteWithUnmount?: boolean;
+    className?: string;
 }
 
 export const DynamicModuleReducer:FC<DynamicModuleReducerProps> = (props) => {
-    const { children, reducers, deleteWithUnmount = true } = props;
+    const {
+        children, reducers, deleteWithUnmount = true, className,
+    } = props;
 
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
@@ -40,8 +43,8 @@ export const DynamicModuleReducer:FC<DynamicModuleReducerProps> = (props) => {
 
     return (
         // eslint-disable-next-line react/jsx-no-useless-fragment
-        <>
+        <div className={className}>
             {children}
-        </>
+        </div>
     );
 };
