@@ -82,7 +82,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     theme={ThemeText.PRIMARY}
                     title={article?.title}
                     text={article?.subtitle}
-                    size={TextSize.XL}
+                    size={TextSize.L}
                 />
                 <div style={{ marginBottom: '30px' }}>
                     <div className={cls.dopInfo}>

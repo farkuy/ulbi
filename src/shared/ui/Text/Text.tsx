@@ -8,10 +8,18 @@ export enum ThemeText {
 }
 
 export enum TextSize {
+    S = 'size_s',
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
 }
+
+type HeaderTag = 'h1' | 'h2' | 'h3'
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTag> = {
+    [TextSize.S]: 'h3',
+    [TextSize.M]: 'h2',
+    [TextSize.L]: 'h1',
+};
 
 interface TextProps {
     className?: string;
@@ -30,9 +38,11 @@ export const Text:FC<TextProps> = (props) => {
         size = TextSize.M,
     } = props;
 
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     return (
         <div className={classNames(cls.Text, {}, [className, cls[theme], cls[size]])}>
-            <p className={classNames(cls.title)}>{title}</p>
+            {title && <HeaderTag className={classNames(cls.title)}>{title}</HeaderTag>}
             <p className={classNames(cls.text)}>{text}</p>
         </div>
     );
