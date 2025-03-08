@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useRef } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -8,7 +8,6 @@ import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { ArticlePageFilter } from 'features/ArticlePageFilter';
 import { useSearchParams } from 'react-router-dom';
-import { VirtualList } from 'features/VirtualList/ui/VirtualList';
 import { initeArticlesPage } from '../model/service/initeArticlesPage';
 import { getArticlesLoading, getArticlesView } from '../model/selectors/getArticles/getArticles';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
@@ -35,10 +34,13 @@ const ArticlesPage = () => {
     useStartEffect(() => dispatch(initeArticlesPage(searchParams)));
 
     return (
-        <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount={false}>
+        <DynamicModuleReducer
+            reducers={initialReducer}
+            deleteWithUnmount={false}
+            className={classNames(cls.ArticlesPage, {}, [])}
+        >
             <PageWrapper
                 onScrollEnd={onScrollEnd}
-                className={classNames(cls.ArticlesPage, {}, [])}
                 id={ID_ARTICLE}
             >
                 <ArticlePageFilter />

@@ -1,6 +1,6 @@
 import { DeepPartial } from 'shared/types/DeepPartial';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { ValidateProfileError } from '../../../model/types/profile';
 import { getProfileValidateError } from './getProfileValidateError';
 
 describe('getProfileValidateError', () => {

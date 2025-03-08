@@ -1,12 +1,11 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import {
-    getProfile, Profile, profileActions, saveProfileData,
-} from 'entities/Profile';
+import { getProfile, profileActions, saveProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getUser } from 'entities/User';
+import { HStack } from 'shared/ui/Stack';
 import cls from './ProfileCardHeader.module.scss';
 
 interface ProfileCardHeaderProps {
@@ -34,17 +33,16 @@ export const ProfileCardHeader:FC<ProfileCardHeaderProps> = (props) => {
     }, [dispatch]);
 
     return (
-        <div className={cls.ProfileCardHeader}>
+        <HStack justify="between" max>
             <div>
                 {t('PROFILE')}
             </div>
             <div className={cls.buttons}>
                 {
                     user?.id === profile?.id && (
-                        <>
+                        <HStack gap="8">
                             <Button
                                 onClick={readOnly ? toggleReadonly : cancelChange}
-                                className={cls.left_button}
                                 theme={readOnly ? ButtonTheme.OUTLINE : ButtonTheme.OUTLINE_RED}
                             >
                                 {readOnly ? t('TOGGLE') : t('CANCEL')}
@@ -52,11 +50,11 @@ export const ProfileCardHeader:FC<ProfileCardHeaderProps> = (props) => {
                             {
                                 !readOnly && <Button onClick={saveProfileChange}>{t('SAVE')}</Button>
                             }
-                        </>
+                        </HStack>
                     )
                 }
 
             </div>
-        </div>
+        </HStack>
     );
 };

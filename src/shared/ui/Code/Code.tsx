@@ -1,6 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC, memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
 import CopyIcon from 'shared/assets/icons/copy-20-20.svg';

@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'farkuy-plugin',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -56,6 +57,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
+        'farkuy-plugin/puth-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,

@@ -11,7 +11,7 @@ import { AddComment } from 'features/AddComment';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { PageHeader } from 'pages/ArticlesDetailsPage/ui/PageHeader/PageHeader';
+import { PageHeader } from '../ui/PageHeader/PageHeader';
 import { articleDetailsPageReducer } from '../model/slice';
 import { fetchArticleRecommend } from '../model/service/fetchArticleRecommend/fetchArticleRecommend';
 import { getArticleRecommendLoading } from '../model/selectors/getArticleRecommends/getArticleRecommends';

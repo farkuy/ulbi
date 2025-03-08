@@ -491,7 +491,8 @@
           ]
         }
       ]
-    }],
+    }
+  ],
   "comments": [
     {
       "id": "1",
@@ -516,6 +517,24 @@
       "articleId": "3",
       "userId": "1",
       "id": "WI8MPo8"
+    },
+    {
+      "text": "dasdwd",
+      "articleId": "7",
+      "userId": "2",
+      "id": "nRH0USj"
+    },
+    {
+      "text": "xcf",
+      "articleId": "7",
+      "userId": "2",
+      "id": "8wyhzQf"
+    },
+    {
+      "text": "wqddsad",
+      "articleId": "7",
+      "userId": "2",
+      "id": "p5kWbSZ"
     }
   ],
   "users": [

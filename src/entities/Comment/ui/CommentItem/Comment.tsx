@@ -5,6 +5,7 @@ import { Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { VStack } from 'shared/ui/Stack';
 import cls from './Comment.module.scss';
 import { Comment as CommentUser } from '../../model/types/comment';
 
@@ -19,18 +20,18 @@ export const Comment = memo((props: CommentProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.Comment, {}, [className])}>
-                <div className={cls.userInfo}>
+            <VStack max gap="8" className={classNames(cls.Comment, {}, [className])}>
+                <VStack max gap="8" className={cls.userInfo}>
                     <Skeleton height={40} width={40} borderRadius="50%" />
                     <Skeleton height={20} width={100} />
-                </div>
+                </VStack>
                 <Skeleton height={100} width="100%" />
-            </div>
+            </VStack>
         );
     }
 
     return (
-        <div className={classNames(cls.Comment, {}, [className])}>
+        <VStack max gap="8" className={classNames(cls.Comment, {}, [className])}>
             <AppLink
                 className={cls.userInfo}
                 to={`${RoutePath.profile}${comment.user.id}`}
@@ -39,6 +40,6 @@ export const Comment = memo((props: CommentProps) => {
                 <Text title={comment.user.username} />
             </AppLink>
             <Text text={comment.text} />
-        </div>
+        </VStack>
     );
 });

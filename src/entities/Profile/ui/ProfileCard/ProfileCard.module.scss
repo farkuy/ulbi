@@ -10,20 +10,18 @@
     align-items: center;
 }
 
+.input {
+   width: 100%;
+}
+
 .info {
     display: flex;
     flex-direction: column;
 }
 
-.input {
-    margin-bottom: 10px;
-}
-
 .loading,
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 300px;
 }
 
 .left {
@@ -36,11 +34,4 @@
 
 .right {
     text-align: right;
-}
-
-.avatar {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 20px;
 }
