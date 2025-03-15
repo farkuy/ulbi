@@ -1,8 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { CURRENCY } from 'entities/Currency';
-import { IOptions, Select } from 'shared/ui/Select/Select';
-import cls from './CurrencySelect.module.scss';
+import { IOptions } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { CURRENCY } from '../model/types';
 
 interface CurrencySelectProps {
     className?: string;
@@ -12,10 +11,10 @@ interface CurrencySelectProps {
 }
 
 const allCurrency: IOptions<CURRENCY>[] = [
-    { value: CURRENCY.RUB, label: 'RUB' },
-    { value: CURRENCY.EUR, label: 'EUR' },
-    { value: CURRENCY.USD, label: 'USD' },
-    { value: CURRENCY.YEN, label: 'YEN' },
+    { value: CURRENCY.RUB, content: 'RUB' },
+    { value: CURRENCY.EUR, content: 'EUR' },
+    { value: CURRENCY.USD, content: 'USD' },
+    { value: CURRENCY.YEN, content: 'YEN' },
 
 ];
 
@@ -29,12 +28,13 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
     };
 
     return (
-        <Select
-            value={value}
+        <ListBox
             onChange={onChange}
-            className={classNames(cls.CurrencySelect, {}, [className])}
-            options={allCurrency}
-            disable={readonly}
+            defaultValue="Укажите валюту"
+            value={value}
+            items={allCurrency}
+            className={className}
+            readonly={readonly}
         />
     );
 });

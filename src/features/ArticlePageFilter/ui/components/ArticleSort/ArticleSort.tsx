@@ -24,26 +24,26 @@ export const ArticleSort: FC<ArticleSortProps> = (props) => {
     const orderTypes = useMemo<IOptions<SortOrder>[]>(() => [
         {
             value: 'asc',
-            label: t('ASC'),
+            content: t('ASC'),
         },
         {
             value: 'desc',
-            label: t('DESC'),
+            content: t('DESC'),
         },
     ], [t]);
 
     const sortTypes = useMemo<IOptions<ArticlesSort>[] >(() => [
         {
             value: ArticlesSort.TITLE,
-            label: t('TITLE'),
+            content: t('TITLE'),
         },
         {
             value: ArticlesSort.CREATED,
-            label: t('CREATED'),
+            content: t('CREATED'),
         },
         {
             value: ArticlesSort.VIEWS,
-            label: t('VIEWS'),
+            content: t('VIEWS'),
         },
     ], [t]);
 

@@ -4,7 +4,7 @@ import cls from './Select.module.scss';
 
 export interface IOptions<T extends string>{
     value: T;
-    label: string;
+    content: string;
 }
 
 interface SelectProps<T extends string> {
@@ -26,7 +26,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     };
 
     const allOptions = useMemo(
-        () => options.map((opt) => <option key={opt.value} value={opt.value} label={opt.label} />),
+        () => options.map((opt) => <option key={opt.value} value={opt.value} label={opt.content} />),
         [options],
     );
 

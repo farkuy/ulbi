@@ -125,6 +125,11 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
                 className={cls.input}
                 onChange={onChangeUserName}
             />
+            <CurrencySelect
+                value={profileData?.currency}
+                onChangeCurrency={onChangeCurrency}
+                readonly={readOnly}
+            />
             <Input
                 value={profileData?.avatar ?? ''}
                 placeholder={t('PHOTO')}
@@ -132,11 +137,7 @@ export const ProfileCard:FC<ProfileCardProps> = (props) => {
                 className={cls.input}
                 onChange={onChangeAvatar}
             />
-            <CurrencySelect
-                value={profileData?.currency}
-                onChangeCurrency={onChangeCurrency}
-                readonly={readOnly}
-            />
+
             <CountrySelect
                 value={profileData?.country}
                 onChangeCountry={onChangeCountry}

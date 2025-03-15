@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { IOptions, Select } from 'shared/ui/Select/Select';
+import { IOptions } from 'shared/ui/Select/Select';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { COUNTRY } from '../model/types';
 import cls from './CountrySelect.module.scss';
 
@@ -12,10 +12,10 @@ interface CountrySelectProps {
 }
 
 const allCountry: IOptions<COUNTRY>[] = [
-    { value: COUNTRY.RUSSIA, label: COUNTRY.RUSSIA },
-    { value: COUNTRY.GERMANY, label: COUNTRY.GERMANY },
-    { value: COUNTRY.USA, label: COUNTRY.USA },
-    { value: COUNTRY.JAPAN, label: COUNTRY.JAPAN },
+    { value: COUNTRY.RUSSIA, content: COUNTRY.RUSSIA },
+    { value: COUNTRY.GERMANY, content: COUNTRY.GERMANY },
+    { value: COUNTRY.USA, content: COUNTRY.USA },
+    { value: COUNTRY.JAPAN, content: COUNTRY.JAPAN },
 ];
 
 export const CountrySelect = memo((props: CountrySelectProps) => {
@@ -23,17 +23,18 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
         className, value, onChangeCountry, readonly,
     } = props;
 
-    const onChange = (value: COUNTRY) => {
-        if (onChangeCountry) onChangeCountry(value);
+    const onChange = (value: string) => {
+        if (onChangeCountry) onChangeCountry(value as COUNTRY);
     };
 
     return (
-        <Select
-            value={value}
+        <ListBox
             onChange={onChange}
-            className={classNames(cls.CurrencySelect, {}, [className])}
-            options={allCountry}
-            disable={readonly}
+            defaultValue="Выберите страну"
+            value={value}
+            items={allCountry}
+            className={className}
+            readonly={readonly}
         />
     );
 });
