@@ -5,6 +5,9 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, userActions } from 'entities/User';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -32,11 +35,24 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (userData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Button
-                    onClick={logout}
-                >
-                    {t('LOGOUT')}
-                </Button>
+                <Dropdown
+                    items={[
+                        {
+                            content: t('PROFILE'),
+                            href: RoutePath.profile + userData.id,
+                        },
+                        {
+                            content: t('LOGOUT'),
+                            onClick: logout,
+                        }]}
+                    trigger={(
+                        <Avatar
+                            size={30}
+                            src={userData.avatar}
+                        />
+                    )}
+                    direction="bottom right"
+                />
             </header>
         );
     }
