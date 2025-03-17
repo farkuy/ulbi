@@ -13,11 +13,13 @@ import { ArticlesDetailsPageSchema } from 'pages/ArticlesDetailsPage';
 import { AddCommentSchema } from 'features/AddComment';
 import { ArticlesPagesSchema } from 'pages/ArticlesPage';
 import { SaveScrollSchema } from 'features/SaveScrollPosition';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
-    scrollSave: SaveScrollSchema
+    scrollSave: SaveScrollSchema,
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>,
 
     // Необязательные стейты
     login?: LoginSchema,

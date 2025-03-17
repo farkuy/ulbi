@@ -1,6 +1,6 @@
-import { api } from 'shared/api/rtkApi';
+import { rtkApi } from 'shared/api/rtkApi';
 
-const articleRecommendApi = api.injectEndpoints({
+const articleRecommendApi = rtkApi.injectEndpoints({
     endpoints: (builder) => ({
         getRecommend: builder.query({
             query: (limit) => ({
@@ -8,6 +8,7 @@ const articleRecommendApi = api.injectEndpoints({
                 method: 'GET',
                 params: {
                     _limit: limit,
+                    _expand: 'user',
                 },
             }),
         }),
