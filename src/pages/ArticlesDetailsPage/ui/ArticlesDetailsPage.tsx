@@ -11,6 +11,7 @@ import { AddComment } from 'features/AddComment';
 import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
 import { Text, TextSize } from 'shared/ui/Text/Text';
+import { ArticleRecomend } from 'features/ArticleRecomend';
 import { PageHeader } from '../ui/PageHeader/PageHeader';
 import { articleDetailsPageReducer } from '../model/slice';
 import { fetchArticleRecommend } from '../model/service/fetchArticleRecommend/fetchArticleRecommend';
@@ -58,15 +59,7 @@ const ArticlesDetailsPage = () => {
             <PageWrapper className={classNames(cls.ArticlesDetailsPage, {}, [])}>
                 <PageHeader />
                 <ArticleDetails id={id} />
-                <Text size={TextSize.L} title={t('RECOMMEND')} />
-                <ArticleList
-                    className={cls.recommends}
-                    view={ArticleView.SMALL}
-                    articles={recommends || []}
-                    isLoading={recommendsLoading}
-                    /* eslint-disable-next-line i18next/no-literal-string */
-                    target="_blank"
-                />
+                <ArticleRecomend />
                 <Text size={TextSize.L} title={t('COMMENT')} />
                 <AddComment onSendComment={onSendComment} />
                 <CommentList
