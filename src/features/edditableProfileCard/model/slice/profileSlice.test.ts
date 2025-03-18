@@ -1,6 +1,9 @@
 import { mockProfile } from 'shared/consts/tests/profile';
 import { saveProfileData } from 'entities/Profile';
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
+import {
+    ProfileSchema,
+    ValidateProfileError,
+} from '../../model/types/edditableProfileCard.types';
 import { profileActions, profileReducer } from './profileSlice';
 
 describe('counterSlice.test', () => {

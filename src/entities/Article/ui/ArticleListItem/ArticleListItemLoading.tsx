@@ -3,9 +3,6 @@ import { memo } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Container } from 'shared/ui/Container/Container';
-import { Icon } from 'shared/ui/Icon/Icon';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Text } from 'shared/ui/Text/Text';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemLoadingProps {

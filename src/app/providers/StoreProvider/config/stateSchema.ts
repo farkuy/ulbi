@@ -5,7 +5,6 @@ import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router';
 import { ArticleSchema } from 'entities/Article';
@@ -14,6 +13,7 @@ import { AddCommentSchema } from 'features/AddComment';
 import { ArticlesPagesSchema } from 'pages/ArticlesPage';
 import { SaveScrollSchema } from 'features/SaveScrollPosition';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ProfileSchema } from 'features/edditableProfileCard/model/types/edditableProfileCard.types';
 
 export interface StateSchema {
     counter: CounterSchema,

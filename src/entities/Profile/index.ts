@@ -1,14 +1,17 @@
-export { profileReducer, profileActions } from './model/slice/profileSlice';
+export { profileReducer, profileActions } from '../../features/edditableProfileCard/model/slice/profileSlice';
 export {
-    Profile, ProfileSchema,
+    Profile,
 } from './model/types/profile';
-export { getProfile } from './model/selectors/getProfile/getProfile';
-export { fetchProfileData } from './model/service/fetchProfileData/fetchProfileData';
-export { validateProfileData } from './model/service/validateProfileData/validateProfileData';
-export { saveProfileData } from './model/service/saveProfileData/saveProfileData';
+export { getProfile } from '../../features/edditableProfileCard/model/selectors/getProfile/getProfile';
+export { fetchProfileData } from '../../features/edditableProfileCard/model/service/fetchProfileData/fetchProfileData';
+export { validateProfileData }
+    from '../../features/edditableProfileCard/model/service/validateProfileData/validateProfileData';
+export { saveProfileData } from '../../features/edditableProfileCard/model/service/saveProfileData/saveProfileData';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
-export { getProfileLoading } from './model/selectors/getProfileLoading/getProfileLoading';
-export { getProfileError } from './model/selectors/getProfileError/getProfileError';
-export { getReadonly } from './model/selectors/getReadonly/getReadonly';
-export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
-export { getProfileValidateError } from './model/selectors/getProfileValidateError/getProfileValidateError';
+export { getProfileLoading }
+    from '../../features/edditableProfileCard/model/selectors/getProfileLoading/getProfileLoading';
+export { getProfileError } from '../../features/edditableProfileCard/model/selectors/getProfileError/getProfileError';
+export { getReadonly } from '../../features/edditableProfileCard/model/selectors/getReadonly/getReadonly';
+export { getProfileForm } from '../../features/edditableProfileCard/model/selectors/getProfileForm/getProfileForm';
+export { getProfileValidateError }
+    from '../../features/edditableProfileCard/model/selectors/getProfileValidateError/getProfileValidateError';

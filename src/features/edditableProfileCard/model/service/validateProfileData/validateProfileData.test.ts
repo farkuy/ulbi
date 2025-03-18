@@ -1,5 +1,5 @@
 import { mockProfile } from 'shared/consts/tests/profile';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { ValidateProfileError } from '../../../model/types/edditableProfileCard.types';
 import { validateProfileData } from './validateProfileData';
 
 describe('validateProfileData', () => {

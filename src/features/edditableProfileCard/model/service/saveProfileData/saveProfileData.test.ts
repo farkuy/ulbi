@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
 import { mockProfile } from 'shared/consts/tests/profile';
-import { ValidateProfileError } from 'entities/Profile/model/types/profile';
+import { ValidateProfileError } from '../../../model/types/edditableProfileCard.types';
 import { saveProfileData } from './saveProfileData';
 
 jest.mock('axios');
