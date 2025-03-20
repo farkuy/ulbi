@@ -5,6 +5,7 @@ import ProfileIcon from 'shared/assets/icons/profile.svg';
 import ArticlesIcon from 'shared/assets/icons/article-20-20.svg';
 import { createSelector } from '@reduxjs/toolkit';
 import { getUser } from 'entities/User';
+import { UserRole } from 'entities/User/model/types/user';
 import { TSidebarItem } from '../types/sidebar';
 
 export const getSidebarItems = createSelector(
@@ -36,6 +37,14 @@ export const getSidebarItems = createSelector(
                     text: 'ARTICLES',
                 }],
             );
+        }
+
+        if (userData?.roles && (userData.roles.includes(UserRole.ADMIN) || userData.roles.includes(UserRole.MANAGER))) {
+            sidebarLinks.push({
+                path: RoutePath.admin,
+                Icon: ProfileIcon,
+                text: 'ADMIN',
+            });
         }
 
         return sidebarLinks;

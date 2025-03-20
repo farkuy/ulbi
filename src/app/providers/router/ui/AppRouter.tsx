@@ -15,7 +15,7 @@ const AppRouter = () => {
             <Route
                 key={route.path}
                 path={route.path}
-                element={route.forAuthPage ? <RequireAuth>{element}</RequireAuth> : element}
+                element={route.forAuthPage || route.forAdmin ? <RequireAuth>{element}</RequireAuth> : element}
             />
         );
     }, []);
