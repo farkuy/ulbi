@@ -49,7 +49,7 @@ module.exports = {
             'error',
             {
                 markupOnly: true,
-                ignoreAttribute: ['data-testid', 'to'],
+                ignoreAttribute: ['data-testid', 'to', 'direction', 'as', 'defaultValue', 'justify'],
             },
         ],
         'max-len': ['error', { ignoreComments: true, code: 120 }],
@@ -58,6 +58,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
         'farkuy-plugin/puth-checker': 'error',
+        'no-plusplus': 'off',
     },
     globals: {
         __IS_DEV__: true,
