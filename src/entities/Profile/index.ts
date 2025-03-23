@@ -1,5 +1,5 @@
 export { profileReducer, profileActions } from '../../features/edditableProfileCard/model/slice/profileSlice';
-export {
+export type {
     Profile,
 } from './model/types/profile';
 export { getProfile } from '../../features/edditableProfileCard/model/selectors/getProfile/getProfile';

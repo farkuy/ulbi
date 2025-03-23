@@ -18,4 +18,4 @@ render(
     </BrowserRouter>,
     document.getElementById('root'),
 );
-export { ProfileSchema } from 'features/edditableProfileCard/model/types/edditableProfileCard.types';
+export type { ProfileSchema } from 'features/edditableProfileCard/model/types/edditableProfileCard.types';

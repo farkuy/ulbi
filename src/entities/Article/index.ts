@@ -1,4 +1,5 @@
-export { Article, ArticleSchema, ArticleView } from './model/types/article';
+export { ArticleView } from './model/types/article';
+export type { Article, ArticleSchema } from './model/types/article';
 export { articleDetailsActions, articleDetailsReducer } from './model/slice/articleDetailsSlice';
 export { getArticleDetails, getArticleDetailsError, getArticleDetailsLoading }
     from './model/selectors/getArticle/getArticle';
