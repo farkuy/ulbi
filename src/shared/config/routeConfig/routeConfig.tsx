@@ -10,7 +10,7 @@ import { AdminPage } from 'pages/AdminPage';
 import { UserRole } from 'entities/User/model/types/user';
 import { BlockedNavPage } from 'pages/BlockedNavPage';
 
-export interface CustomRouteProps extends RouteProps {
+export type CustomRouteProps = RouteProps & {
     forAuthPage?: boolean;
     forAdmin?: boolean
 }

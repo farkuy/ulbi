@@ -3,6 +3,6 @@ import React from 'react';
 
 export interface TSidebarItem {
     path: string,
-    Icon: React.SFC<React.SVGProps<SVGSVGElement>>,
+    Icon: React.FC<React.SVGProps<SVGSVGElement>>,
     text: string,
 }

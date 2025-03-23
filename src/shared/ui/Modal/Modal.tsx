@@ -1,5 +1,7 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
-import { FC, useCallback, useEffect } from 'react';
+import {
+    FC, ReactNode, useCallback, useEffect,
+} from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -8,6 +10,7 @@ interface ModalProps {
     isOpen?: boolean;
     closeModal?: () => void;
     lazy?: boolean;
+    children: ReactNode
 }
 
 export const Modal:FC<ModalProps> = (props) => {
