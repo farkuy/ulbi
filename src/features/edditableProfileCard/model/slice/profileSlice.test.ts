@@ -1,5 +1,5 @@
 import { mockProfile } from 'shared/consts/tests/profile';
-import { saveProfileData } from 'entities/Profile';
+import { saveProfileData } from '../service/saveProfileData/saveProfileData';
 import {
     ProfileSchema,
     ValidateProfileError,

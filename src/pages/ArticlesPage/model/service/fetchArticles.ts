@@ -8,7 +8,7 @@ import {
     getArticlesSearch,
     getArticlesSort,
 } from '../../model/selectors/getArticles/getArticles';
-import { articlesAction } from '../../model/slice/articlesPageslice';
+import { setInited } from '../actions/articlesPageActions';
 
 export interface FetchArticleListProps {
     page?: number;
@@ -44,7 +44,7 @@ export const fetchArticles = createAsyncThunk<Article[], FetchArticleListProps, 
                 return rejectWithValue('server error');
             }
 
-            dispatch(articlesAction.setInited(true));
+            dispatch(setInited(true));
 
             return response.data;
         } catch (e) {

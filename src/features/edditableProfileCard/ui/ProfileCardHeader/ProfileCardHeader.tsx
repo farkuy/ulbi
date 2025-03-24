@@ -1,11 +1,14 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getProfile, profileActions, saveProfileData } from 'entities/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getUser } from 'entities/User';
 import { HStack } from 'shared/ui/Stack';
+import { getProfile } from '../../model/selectors/getProfile/getProfile';
+import { profileActions } from '../../model/slice/profileSlice';
+import { saveProfileData }
+    from '../../model/service/saveProfileData/saveProfileData';
 import cls from './ProfileCardHeader.module.scss';
 
 interface ProfileCardHeaderProps {

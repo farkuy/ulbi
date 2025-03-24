@@ -7,7 +7,6 @@ import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticlesDetailsPage } from 'pages/ArticlesDetailsPage';
 import { ArticleCreateEdit } from 'pages/ArticleCreateEdit';
 import { AdminPage } from 'pages/AdminPage';
-import { UserRole } from 'entities/User/model/types/user';
 import { BlockedNavPage } from 'pages/BlockedNavPage';
 
 export type CustomRouteProps = RouteProps & {

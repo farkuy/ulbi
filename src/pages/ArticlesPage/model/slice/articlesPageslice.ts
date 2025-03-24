@@ -1,11 +1,12 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
-import { Article, ArticleView } from 'entities/Article';
+import { Article, ArticleView } from 'entities/Article/model/types/article';
 import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
 import { SortOrder } from 'shared/types/sort';
 import { ArticlesPagesSchema, ArticlesSort } from '../types/articlesPage';
-import { FetchArticleListProps, fetchArticles } from '../service/fetchArticles';
+import { fetchArticles } from '../service/fetchArticles';
+import { setInited } from '../actions/articlesPageActions';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (comment) => comment.id,
@@ -45,9 +46,6 @@ const articlesSlice = createSlice({
         setMore: (state, action: PayloadAction<boolean>) => {
             state.hasMore = action.payload;
         },
-        setInited: (state, action: PayloadAction<boolean>) => {
-            state._inited = action.payload;
-        },
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
@@ -59,6 +57,9 @@ const articlesSlice = createSlice({
         },
     },
     extraReducers: (builder) => {
+        builder.addCase(setInited, (state, action) => {
+            state._inited = action.payload;
+        });
         builder.addCase(fetchArticles.pending, (state) => {
             state.isLoading = true;
         });

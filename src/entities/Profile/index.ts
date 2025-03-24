@@ -1,4 +1,3 @@
-export { profileReducer, profileActions } from '../../features/edditableProfileCard/model/slice/profileSlice';
 export type {
     Profile,
 } from './model/types/profile';
@@ -6,7 +5,6 @@ export { getProfile } from '../../features/edditableProfileCard/model/selectors/
 export { fetchProfileData } from '../../features/edditableProfileCard/model/service/fetchProfileData/fetchProfileData';
 export { validateProfileData }
     from '../../features/edditableProfileCard/model/service/validateProfileData/validateProfileData';
-export { saveProfileData } from '../../features/edditableProfileCard/model/service/saveProfileData/saveProfileData';
 export { ProfileCard } from './ui/ProfileCard/ProfileCard';
 export { getProfileLoading }
     from '../../features/edditableProfileCard/model/selectors/getProfileLoading/getProfileLoading';
