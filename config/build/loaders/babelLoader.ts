@@ -1,6 +1,12 @@
-export function babelBuildLoader() {
+import { BuildOptions } from '../types/config';
+
+interface BuildBabelLoaderProps extends BuildOptions {
+    isTsx?: boolean;
+}
+
+export function babelBuildLoader({ isDev, isTsx }:BuildBabelLoaderProps) {
     return {
-        test: /\.(js|jsx|tsx)$/,
+        test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
@@ -14,6 +20,8 @@ export function babelBuildLoader() {
                             keyAsDefaultValue: true,
                         },
                     ],
+                    ['@babel/plugin-transform-typescript', { isTsx }],
+                    ['@babel/plugin-transform-runtime'],
                 ],
             },
         },
