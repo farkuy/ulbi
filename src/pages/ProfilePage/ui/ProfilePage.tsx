@@ -18,13 +18,10 @@ const ProfilePage = memo<ProfilePageProps>((props) => {
 
     return (
         <PageWrapper className={cls.ProfilePage}>
-            <VStack gap="16" max>
-                <div>
-                    {t('PROFILE_PAGE')}
-                </div>
-                <EdditableProfileCard id={id} />
-            </VStack>
-
+            <div>
+                {t('PROFILE_PAGE')}
+            </div>
+            <EdditableProfileCard id={id} />
         </PageWrapper>
     );
 });

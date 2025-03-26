@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { IOptions } from 'shared/ui/Select/Select';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
 import { CURRENCY } from '../model/types';
 
 interface CurrencySelectProps {

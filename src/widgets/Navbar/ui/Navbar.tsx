@@ -5,9 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser, userActions } from 'entities/User';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Dropdown } from 'shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
+import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
+import { Icon } from 'shared/ui/Icon/Icon';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -35,6 +38,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (userData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Popover
+                    trigger={<Icon Svg={NotificationIcon} />}
+                >
+                    dsadasd
+                </Popover>
                 <Dropdown
                     items={[
                         {
@@ -51,7 +59,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                             src={userData.avatar}
                         />
                     )}
-                    direction="bottom right"
+                    direction="bottom left"
                 />
             </header>
         );

@@ -1,0 +1,7 @@
+.item {
+    position: absolute;
+    z-index: 1000;
+    background: var(--listbox-card);
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-card);
+}
