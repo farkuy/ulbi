@@ -43,6 +43,7 @@
   "auth": "",
   "dec": "dec",
   "inc": "inc",
+  "sds": "sds",
   "throw error": "throw error",
   "Админка": "Админка",
   "Главная": "Главная",
