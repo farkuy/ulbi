@@ -8,10 +8,7 @@ import { getUser, userActions } from 'entities/User';
 import { Dropdown } from 'shared/ui/Popups/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
-import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { NotificationList } from 'entities/Notification';
+import { ShowNotify } from 'features/ShowNotify';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -39,11 +36,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if (userData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
-                <Popover
-                    trigger={<Icon className={cls.icon} Svg={NotificationIcon} />}
-                >
-                    <NotificationList />
-                </Popover>
+                <ShowNotify />
                 <Dropdown
                     items={[
                         {
