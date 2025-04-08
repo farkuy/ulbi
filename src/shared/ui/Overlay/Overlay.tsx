@@ -4,13 +4,13 @@ import cls from './Overlay.module.scss';
 
 interface OverlayProps {
     className?: string;
-    close?: () => void;
+    onClose?: () => void;
 }
 
 export const Overlay: FC<OverlayProps> = (props) => {
-    const { className, close } = props;
+    const { className, onClose } = props;
 
     return (
-        <div className={classNames(cls.Overlay, {}, [className])} onClick={close} />
+        <div className={classNames(cls.Overlay, {}, [className])} onClick={onClose} />
     );
 };

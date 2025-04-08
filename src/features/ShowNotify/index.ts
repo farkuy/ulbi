@@ -1,1 +1,1 @@
-export { ShowNotify } from './ui/ShowNotify';
+export { default as ShowNotify } from './ui/ShowNotify';

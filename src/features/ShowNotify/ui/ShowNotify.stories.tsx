@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ShowNotify } from './ShowNotify';
+import ShowNotify from './ShowNotify';
 
 export default {
     title: 'shared/ShowNotify',
@@ -10,7 +10,7 @@ export default {
     },
 } as ComponentMeta<typeof ShowNotify>;
 
-const Template: ComponentStory<typeof ShowNotify> = (args) => <ShowNotify {...args} />;
+const Template: ComponentStory<typeof ShowNotify> = () => <ShowNotify />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { NotificationList } from 'entities/Notification';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { Icon } from 'shared/ui/Icon/Icon';
 import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
 import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { AnimationProvider } from 'shared/lib/components';
 import cls from './ShowNotify.module.scss';
 
-export const ShowNotify = () => {
+const ShowNotify = memo(() => {
     const [isVisible, setVisible] = useState(false);
 
     const showDrawer = () => setVisible(true);
@@ -22,9 +23,11 @@ export const ShowNotify = () => {
                 >
                     <Icon className={cls.icon} Svg={NotificationIcon} />
                 </Button>
-                <Drawer isOpen={isVisible} close={hiddenDrawer}>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isVisible} onClose={hiddenDrawer}>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
             </>
         );
     }
@@ -36,4 +39,6 @@ export const ShowNotify = () => {
             <NotificationList />
         </Popover>
     );
-};
+});
+
+export default ShowNotify;
