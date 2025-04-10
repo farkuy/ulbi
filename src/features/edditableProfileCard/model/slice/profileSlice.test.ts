@@ -1,4 +1,4 @@
-import { mockProfile } from 'shared/consts/tests/profile';
+import { mockProfile } from '@/shared/consts/tests/profile';
 import { saveProfileData } from '../service/saveProfileData/saveProfileData';
 import {
     ProfileSchema,

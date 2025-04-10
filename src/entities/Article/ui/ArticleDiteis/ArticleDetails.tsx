@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text, TextSize, ThemeText } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Icon } from 'shared/ui/Icon/Icon';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text, TextSize, ThemeText } from '@/shared/ui/Text/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 
-import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
+import { useStartEffect } from '@/shared/lib/hooks/useStartEffect/useStartEffect';
 import { ArticleDetailsCode } from '../../ui/ArticleDiteis/ui/ArticleDetailsCode/ArticleDetailsCode';
 import { ArticleDetailsText } from '../../ui/ArticleDiteis/ui/ArticleDetailsText/ArticleDetailsText';
 import { ArticleDetailsImage } from '../../ui/ArticleDiteis/ui/ArticleDetailsImage/ArticleDetailsImage';

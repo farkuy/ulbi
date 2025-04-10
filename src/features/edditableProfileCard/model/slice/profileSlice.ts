@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import i18n from 'i18next';
-import { Profile } from 'entities/Profile';
+import { Profile } from '@/entities/Profile';
 import { ProfileSchema } from '../../model/types/edditableProfileCard.types';
 import { fetchProfileData } from '../service/fetchProfileData/fetchProfileData';
 import { saveProfileData } from '../service/saveProfileData/saveProfileData';

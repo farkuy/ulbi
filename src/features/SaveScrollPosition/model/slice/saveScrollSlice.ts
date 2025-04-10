@@ -1,6 +1,6 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
-import { keyStateSchema } from 'app/providers/StoreProvider';
+import { keyStateSchema } from '@/app/providers/StoreProvider';
 import { SaveScrollSchema } from '../types/saveScroll';
 
 const initialState: SaveScrollSchema = {

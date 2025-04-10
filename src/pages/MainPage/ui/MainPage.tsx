@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from 'shared/ui/Popups/ui/ListBox/ListBox';
-import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
+import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
+import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
 
 const MainPage = () => {
     const { t } = useTranslation();

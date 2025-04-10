@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { ArticleList, ArticleView } from 'entities/Article';
 import { useSelector } from 'react-redux';
-import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { useSearchParams } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { useStartEffect } from '@/shared/lib/hooks/useStartEffect/useStartEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getArticles } from '../../model/slice/articlesPageslice';
 import { getArticlesLoading, getArticlesView } from '../../model/selectors/getArticles/getArticles';
 import { initeArticlesPage } from '../../model/service/initeArticlesPage';

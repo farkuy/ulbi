@@ -1,10 +1,10 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { VStack } from 'shared/ui/Stack';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import cls from './NotificationList.module.scss';

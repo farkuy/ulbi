@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback } from 'react';
-import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
-import { ArticlePageFilter } from 'features/ArticlePageFilter';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
+import { ArticlePageFilter } from '@/features/ArticlePageFilter';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList/ArticlesInfiniteList';
 import { fetchNextArticlesPage } from '../model/service/fetchNextArticlesList';
 import { articlesReducer } from '../model/slice/articlesPageslice';

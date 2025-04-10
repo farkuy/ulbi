@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Container } from 'shared/ui/Container/Container';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Container } from '@/shared/ui/Container/Container';
 import { ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 

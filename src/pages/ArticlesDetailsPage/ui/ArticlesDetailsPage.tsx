@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
-import { DynamicModuleReducer, ReducersList } from 'shared/lib/components/DynamicModuleReducer';
-import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
-import { ArticleRecomend } from 'features/ArticleRecomend';
+import { ArticleDetails } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
+import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
+import { ArticleRecomend } from '@/features/ArticleRecomend';
 import { DetailsComments } from './DetailsComments/DetailsComments';
 import { PageHeader } from '../ui/PageHeader/PageHeader';
 import { articleDetailsPageReducer } from '../model/slice';

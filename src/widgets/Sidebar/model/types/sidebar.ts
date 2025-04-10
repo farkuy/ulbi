@@ -1,5 +1,5 @@
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import React from 'react';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
 
 export interface TSidebarItem {
     path: string,

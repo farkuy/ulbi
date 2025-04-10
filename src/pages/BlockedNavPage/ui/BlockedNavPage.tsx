@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
 import cls from './BlockedNavPage.module.scss';
 
 interface BlockedNavPageProps {

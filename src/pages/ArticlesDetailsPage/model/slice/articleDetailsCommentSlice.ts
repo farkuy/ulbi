@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Comment } from 'entities/Comment/model/types/comment';
-import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
+import { Comment } from '@/entities/Comment/model/types/comment';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { fetchCommentsByArticleId } from '../../model/service/fetchCooments/fetchComments';
 import { ArticleDetailsCommentSchema } from '../types/articleDetailsComment';
 

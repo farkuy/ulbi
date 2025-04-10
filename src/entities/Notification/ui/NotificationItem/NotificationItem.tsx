@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import React, { FC } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Notification } from '../../model/types/notification';
 import cls from './NotificationItem.module.scss';
 

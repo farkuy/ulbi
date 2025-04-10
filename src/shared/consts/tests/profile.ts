@@ -1,6 +1,6 @@
-import { CURRENCY } from 'entities/Currency';
-import { COUNTRY } from 'entities/Country';
-import { Profile } from 'entities/Profile';
+import { CURRENCY } from '@/entities/Currency';
+import { COUNTRY } from '@/entities/Country';
+import { Profile } from '@/entities/Profile';
 
 export const mockProfile: Profile = {
     first: 'Anton',

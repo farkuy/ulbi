@@ -1,11 +1,11 @@
 import React, { memo, useState } from 'react';
-import { NotificationList } from 'entities/Notification';
-import { Drawer } from 'shared/ui/Drawer/Drawer';
-import { Icon } from 'shared/ui/Icon/Icon';
-import NotificationIcon from 'shared/assets/icons/notification-20-20.svg';
-import { Popover } from 'shared/ui/Popups/ui/Popover/Popover';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { AnimationProvider } from 'shared/lib/components';
+import { NotificationList } from '@/entities/Notification';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { AnimationProvider } from '@/shared/lib/components';
+import { Popover } from '@/shared/ui/Popups/ui/Popover/Popover';
 import cls from './ShowNotify.module.scss';
 
 const ShowNotify = memo(() => {

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PageWrapper } from 'widgets/PageWrapper/PageWrapper';
-import { VStack } from 'shared/ui/Stack';
-import { EdditableProfileCard } from 'features/edditableProfileCard/ui/EdditableProfileCard';
 import { useParams } from 'react-router-dom';
-import { Overlay } from 'shared/ui/Overlay/Overlay';
+import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
+import { VStack } from '@/shared/ui/Stack';
+import { EdditableProfileCard } from '@/features/edditableProfileCard/ui/EdditableProfileCard';
+import { Overlay } from '@/shared/ui/Overlay/Overlay';
 import cls from './ProfilePage.module.scss';
 
 interface ProfilePageProps {

@@ -1,11 +1,11 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter/model/slice/counterSlice';
-import { userReducer } from 'entities/User';
-import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
-import { $axios } from 'shared/api/api';
 import { CombinedState } from 'redux';
-import { scrollSaveReducer } from 'features/SaveScrollPosition';
-import { rtkApi } from 'shared/api/rtkApi';
+import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
+import { userReducer } from '@/entities/User';
+import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { $axios } from '@/shared/api/api';
+import { scrollSaveReducer } from '@/features/SaveScrollPosition';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema } from './stateSchema';
 
 export function createReduxStore(initialState?: StateSchema) {

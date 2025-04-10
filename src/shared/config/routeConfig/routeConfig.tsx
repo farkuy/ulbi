@@ -1,13 +1,13 @@
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/MainPage';
-import { AboutPage } from 'pages/AboutPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { ArticlesPage } from 'pages/ArticlesPage';
-import { ArticlesDetailsPage } from 'pages/ArticlesDetailsPage';
-import { ArticleCreateEdit } from 'pages/ArticleCreateEdit';
-import { AdminPage } from 'pages/AdminPage';
-import { BlockedNavPage } from 'pages/BlockedNavPage';
+import { MainPage } from '@/pages/MainPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
+import { ProfilePage } from '@/pages/ProfilePage';
+import { ArticlesPage } from '@/pages/ArticlesPage';
+import { ArticlesDetailsPage } from '@/pages/ArticlesDetailsPage';
+import { ArticleCreateEdit } from '@/pages/ArticleCreateEdit';
+import { AdminPage } from '@/pages/AdminPage';
+import { BlockedNavPage } from '@/pages/BlockedNavPage';
 
 export type CustomRouteProps = RouteProps & {
     forAuthPage?: boolean;

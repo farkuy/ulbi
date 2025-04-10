@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input/Input';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { Text } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { CURRENCY, CurrencySelect } from 'entities/Currency';
-import { COUNTRY } from 'entities/Country';
-import { CountrySelect } from 'entities/Country/ui/CountrySelect';
-import { HStack, VStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Input } from '@/shared/ui/Input/Input';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text } from '@/shared/ui/Text/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { CURRENCY, CurrencySelect } from '@/entities/Currency';
+import { COUNTRY } from '@/entities/Country';
+import { CountrySelect } from '@/entities/Country/ui/CountrySelect';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 

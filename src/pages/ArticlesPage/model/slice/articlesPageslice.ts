@@ -1,9 +1,9 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
 import i18n from 'i18next';
-import { Article, ArticleView } from 'entities/Article/model/types/article';
-import { SHOW_MOD_ARTICLE_VIEW } from 'shared/consts/auth';
-import { SortOrder } from 'shared/types/sort';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article, ArticleView } from '@/entities/Article/model/types/article';
+import { SHOW_MOD_ARTICLE_VIEW } from '@/shared/consts/auth';
+import { SortOrder } from '@/shared/types/sort';
 import { ArticlesPagesSchema, ArticlesSort } from '../types/articlesPage';
 import { fetchArticles } from '../service/fetchArticles';
 import { setInited } from '../actions/articlesPageActions';

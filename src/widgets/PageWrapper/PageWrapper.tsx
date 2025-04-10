@@ -1,15 +1,15 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import {
     HTMLProps, memo, ReactNode, UIEvent, useRef,
 } from 'react';
-import { getScrollValueByKey, scrollSaveActions } from 'features/SaveScrollPosition';
 import { useLocation } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { keyStateSchema, StateSchema } from 'app/providers/StoreProvider';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
-import { useStartEffect } from 'shared/lib/hooks/useStartEffect/useStartEffect';
 import { useSelector } from 'react-redux';
-import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getScrollValueByKey, scrollSaveActions } from '@/features/SaveScrollPosition';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { keyStateSchema, StateSchema } from '@/app/providers/StoreProvider';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useStartEffect } from '@/shared/lib/hooks/useStartEffect/useStartEffect';
+import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './PageWrapper.module.scss';
 
 interface PageWrapperProps extends Omit<HTMLProps<HTMLDivElement>, 'className' | 'children'> {

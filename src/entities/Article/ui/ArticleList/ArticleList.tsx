@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
-import { VirtualList } from 'features/VirtualList/ui/VirtualList';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VirtualList } from '@/features/VirtualList/ui/VirtualList';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';

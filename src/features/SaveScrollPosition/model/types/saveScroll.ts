@@ -1,4 +1,4 @@
-import { keyStateSchema } from 'app/providers/StoreProvider';
+import { keyStateSchema } from '@/app/providers/StoreProvider';
 
 export type SaveScroll = Record<keyStateSchema, number>;
 

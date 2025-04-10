@@ -1,8 +1,8 @@
 import { ReactElement } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { getIsAdmin, getIsManager, getUser } from 'entities/User';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { getIsAdmin, getIsManager, getUser } from '@/entities/User';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 
 export function RequireAuth({ children }: { children: ReactElement }) {
     const auth = useSelector(getUser);

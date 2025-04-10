@@ -1,19 +1,19 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 import { NavigateFunction } from 'react-router';
-import { ArticleSchema } from 'entities/Article';
-import { ArticlesDetailsPageSchema } from 'pages/ArticlesDetailsPage';
-import { AddCommentSchema } from 'features/AddComment';
-import { ArticlesPagesSchema } from 'pages/ArticlesPage';
-import { SaveScrollSchema } from 'features/SaveScrollPosition';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/edditableProfileCard/model/types/edditableProfileCard.types';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { UserSchema } from '@/entities/User';
+import { CounterSchema } from '@/entities/Counter';
+import { ArticleSchema } from '@/entities/Article';
+import { ArticlesDetailsPageSchema } from '@/pages/ArticlesDetailsPage';
+import { AddCommentSchema } from '@/features/AddComment';
+import { ArticlesPagesSchema } from '@/pages/ArticlesPage';
+import { SaveScrollSchema } from '@/features/SaveScrollPosition';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/edditableProfileCard/model/types/edditableProfileCard.types';
 
 export interface StateSchema {
     counter: CounterSchema,

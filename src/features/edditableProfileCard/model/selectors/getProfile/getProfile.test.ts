@@ -1,6 +1,6 @@
-import { DeepPartial } from 'shared/types/DeepPartial';
-import { mockProfile } from 'shared/consts/tests/profile';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { DeepPartial } from '@/shared/types/DeepPartial';
+import { mockProfile } from '@/shared/consts/tests/profile';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getProfile } from './getProfile';
 
 describe('getProfile', () => {

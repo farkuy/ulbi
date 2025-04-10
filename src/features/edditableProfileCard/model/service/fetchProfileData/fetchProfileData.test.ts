@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk';
-import { mockProfile } from 'shared/consts/tests/profile';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk';
+import { mockProfile } from '@/shared/consts/tests/profile';
 import { fetchProfileData } from './fetchProfileData';
 
 jest.mock('axios');

@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getUser } from 'entities/User';
-import { getArticleDetails } from 'entities/Article';
-import { Button } from 'shared/ui/Button/Button';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getUser } from '@/entities/User';
+import { getArticleDetails } from '@/entities/Article';
+import { Button } from '@/shared/ui/Button/Button';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import cls from './PageHeader.module.scss';
 
 interface PageHeaderProps {

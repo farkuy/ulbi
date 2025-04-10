@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Comment } from 'entities/Comment';
-import { getUser } from 'entities/User';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Comment } from '@/entities/Comment';
+import { getUser } from '@/entities/User';
 import { getAddCommentText } from '../../model/selector/getComment/getComment';
 
 export const sendComment = createAsyncThunk<Comment, string | undefined, ThunkConfig<string>>(

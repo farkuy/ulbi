@@ -1,19 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { FC, useCallback } from 'react';
-import { ArticleView } from 'entities/Article';
-import { articlesAction } from 'pages/ArticlesPage/model/slice/articlesPageslice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ToggleArticlesView } from 'features/ToggleArticlesView';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleView } from '@/entities/Article';
+import { articlesAction } from '@/pages/ArticlesPage/model/slice/articlesPageslice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ToggleArticlesView } from '@/features/ToggleArticlesView';
 import {
     getArticlesOrder, getArticlesSearch, getArticlesSort, getArticlesView,
-} from 'pages/ArticlesPage';
-import { Input } from 'shared/ui/Input/Input';
-import { useTranslation } from 'react-i18next';
-import { SortOrder } from 'shared/types/sort';
-import { ArticlesSort } from 'pages/ArticlesPage/model/types/articlesPage';
-import { useDebouncer } from 'shared/lib/hooks/useDebouncer/useDebouncer';
-import { fetchArticles } from 'pages/ArticlesPage/model/service/fetchArticles';
+} from '@/pages/ArticlesPage';
+import { Input } from '@/shared/ui/Input/Input';
+import { SortOrder } from '@/shared/types/sort';
+import { ArticlesSort } from '@/pages/ArticlesPage/model/types/articlesPage';
+import { useDebouncer } from '@/shared/lib/hooks/useDebouncer/useDebouncer';
+import { fetchArticles } from '@/pages/ArticlesPage/model/service/fetchArticles';
 import { ArticleSort } from './components/ArticleSort/ArticleSort';
 import cls from './ArticlePageFilter.module.scss';
 

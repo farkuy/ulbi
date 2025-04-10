@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User, userActions } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { USER_AUTH_TOKEN } from 'shared/consts/auth';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { User, userActions } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { USER_AUTH_TOKEN } from '@/shared/consts/auth';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 export const loginByUserName = createAsyncThunk<User, LoginSchema, ThunkConfig<string>>(
     'login/loginByUserName',
