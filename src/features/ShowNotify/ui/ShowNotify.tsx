@@ -23,11 +23,9 @@ const ShowNotify = memo(() => {
                 >
                     <Icon className={cls.icon} Svg={NotificationIcon} />
                 </Button>
-                <AnimationProvider>
-                    <Drawer isOpen={isVisible} onClose={hiddenDrawer}>
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isVisible} onClose={hiddenDrawer}>
+                    <NotificationList />
+                </Drawer>
             </>
         );
     }
