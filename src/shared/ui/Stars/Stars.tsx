@@ -4,18 +4,18 @@ import cls from './Stars.module.scss';
 import { Icon } from '@/shared/ui/Icon/Icon';
 import StarIcon from '@/shared/assets/icons/star.svg';
 
-interface StarsProps {
+export interface StarsProps {
     className?: string;
     size?: number;
     rating?: number;
-    onChange?: () => void;
+    onChangeRate?: () => void;
 }
 
 const stars = [1, 2, 3, 4, 5];
 
 export const Stars: FC<StarsProps> = (props) => {
     const {
-        className, size = 30, rating = 0, onChange,
+        className, size = 30, rating = 0, onChangeRate,
     } = props;
     const [starRating, setStarRating] = useState(rating);
     const [isHaveRate, setHaveRate] = useState(!!rating);
@@ -32,7 +32,7 @@ export const Stars: FC<StarsProps> = (props) => {
         if (!isHaveRate) {
             setStarRating(star);
             setHaveRate(true);
-            onChange?.();
+            onChangeRate?.();
         }
     };
 
