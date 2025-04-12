@@ -59,6 +59,7 @@ module.exports = {
         'jsx-a11y/no-autofocus': 'off',
         'farkuy-plugin/puth-checker': 'error',
         'no-plusplus': 'off',
+        'react/no-array-index-key': 'off',
     },
     globals: {
         __IS_DEV__: true,
