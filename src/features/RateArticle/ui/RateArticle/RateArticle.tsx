@@ -16,7 +16,6 @@ export const RateArticle: FC<RateArticleProps> = (props) => {
     const userData = useSelector(getUser);
 
     const { data, isLoading, error } = useGetArticleRateQuery({ articleId, userId: userData?.id ?? '' });
-    const [] = useSetArticleRateQuery();
 
     if (isLoading) return <Skeleton width="100%" height={150} />;
 
