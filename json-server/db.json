@@ -623,5 +623,21 @@
       "username": "admin213",
       "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaOq3luCclVtkdTOSslcEd7_ALlNUitnFWtg&s"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    }
   ]
 }

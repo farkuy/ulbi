@@ -12,28 +12,32 @@ interface RateModalProps extends StarsProps{
     className?: string;
     size?: number;
     rating?: number;
-    onChangeRate?: () => void;
+    onAccept?: (rate: number, feedback?: string) => void;
 }
 
 export const RateModal: FC<RateModalProps> = (props) => {
     const {
-        className, size, rating, onChangeRate,
+        className, size, rating, onAccept,
     } = props;
 
     const [review, setReview] = useState('');
     const [isVisible, setIsVisible] = useState(false);
+    const [starRating, setStarRating] = useState(rating);
 
-    const onLeaveFeedback = (value: string) => setReview(value);
+    const onFeedback = (value: string) => setReview(value);
     const closeModal = () => setIsVisible(false);
-    const onClickStar = () => {
+    const onClickStar = (star: number) => {
         setIsVisible(true);
-        onChangeRate?.();
+        setStarRating(star);
+    };
+    const onSubmit = () => {
+        if (starRating) onAccept?.(starRating, review);
     };
 
     return (
         <div>
             <VStack max className={cls.rate}>
-                <Text title="Выберите рейтинг" />
+                <Text title={rating ? 'Вы оценили' : 'Выберите рейтинг'} />
                 <Stars size={size} rating={rating} onChangeRate={onClickStar} />
             </VStack>
             <Modal
@@ -44,10 +48,10 @@ export const RateModal: FC<RateModalProps> = (props) => {
             >
                 <VStack gap="16" max>
                     <Text title="Что вам понравилось?" />
-                    <Input value={review} onChange={onLeaveFeedback} />
+                    <Input value={review} onChange={onFeedback} />
                     <HStack max gap="4">
-                        <Button theme={ButtonTheme.OUTLINE_RED}>Отменить</Button>
-                        <Button>Отправить</Button>
+                        <Button onClick={closeModal} theme={ButtonTheme.OUTLINE_RED}>Отменить</Button>
+                        <Button onClick={onSubmit}>Отправить</Button>
                     </HStack>
                 </VStack>
             </Modal>

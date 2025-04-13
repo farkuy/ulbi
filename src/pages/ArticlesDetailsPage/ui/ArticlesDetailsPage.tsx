@@ -10,6 +10,7 @@ import { DetailsComments } from './DetailsComments/DetailsComments';
 import { PageHeader } from '../ui/PageHeader/PageHeader';
 import { articleDetailsPageReducer } from '../model/slice';
 import cls from './ArticlesDetailsPage.module.scss';
+import { RateArticle } from '@/features/RateArticle';
 
 const initialReducer: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
@@ -30,6 +31,7 @@ const ArticlesDetailsPage = () => {
         <DynamicModuleReducer reducers={initialReducer} deleteWithUnmount>
             <PageWrapper className={classNames(cls.ArticlesDetailsPage, {}, [])}>
                 <PageHeader />
+                <RateArticle articleId={id} />
                 <ArticleDetails id={id} />
                 <ArticleRecomend />
                 <DetailsComments id={id} />

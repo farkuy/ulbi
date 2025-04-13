@@ -8,7 +8,7 @@ export interface StarsProps {
     className?: string;
     size?: number;
     rating?: number;
-    onChangeRate?: () => void;
+    onChangeRate?: (value: number) => void;
 }
 
 const stars = [1, 2, 3, 4, 5];
@@ -32,7 +32,7 @@ export const Stars: FC<StarsProps> = (props) => {
         if (!isHaveRate) {
             setStarRating(star);
             setHaveRate(true);
-            onChangeRate?.();
+            onChangeRate?.(star);
         }
     };
 
