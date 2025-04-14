@@ -1,10 +1,10 @@
 import { HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VirtualList } from '@/features/VirtualList/ui/VirtualList';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
 import { ArticleListItemLoading } from '../ArticleListItem/ArticleListItemLoading';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 
 interface ArticleListProps {
     className?: string;

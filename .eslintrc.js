@@ -57,7 +57,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
-        'farkuy-plugin/puth-checker': 'error',
+        'farkuy-plugin/puth-checker': ['error', { alias: '@' }],
         'no-plusplus': 'off',
         'react/no-array-index-key': 'off',
     },
