@@ -13,7 +13,7 @@ const articleRateApi = rtkApi.injectEndpoints({
                 },
             }),
         }),
-        setArticleRate: builder.query<void, PushRate>({
+        setArticleRate: builder.mutation<Rate, PushRate>({
             query: (params) => ({
                 url: '/article-ratings',
                 method: 'POST',
@@ -26,4 +26,4 @@ const articleRateApi = rtkApi.injectEndpoints({
     overrideExisting: false,
 });
 
-export const { useGetArticleRateQuery, useSetArticleRateQuery } = articleRateApi;
+export const { useGetArticleRateQuery, useSetArticleRateMutation } = articleRateApi;

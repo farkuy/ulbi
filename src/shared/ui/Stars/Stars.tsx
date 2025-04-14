@@ -18,7 +18,7 @@ export const Stars: FC<StarsProps> = (props) => {
         className, size = 30, rating = 0, onChangeRate,
     } = props;
     const [starRating, setStarRating] = useState(rating);
-    const [isHaveRate, setHaveRate] = useState(!!rating);
+    const isHaveRate = !!rating;
 
     const onHover = (star: number) => {
         if (!isHaveRate) setStarRating(star);
@@ -29,11 +29,7 @@ export const Stars: FC<StarsProps> = (props) => {
     };
 
     const onSelectRate = (star: number) => {
-        if (!isHaveRate) {
-            setStarRating(star);
-            setHaveRate(true);
-            onChangeRate?.(star);
-        }
+        if (!isHaveRate) onChangeRate?.(star);
     };
 
     return (

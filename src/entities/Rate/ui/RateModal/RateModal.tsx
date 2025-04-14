@@ -25,20 +25,24 @@ export const RateModal: FC<RateModalProps> = (props) => {
     const [starRating, setStarRating] = useState(rating);
 
     const onFeedback = (value: string) => setReview(value);
-    const closeModal = () => setIsVisible(false);
+    const closeModal = () => {
+        setIsVisible(false);
+        setStarRating(0);
+    };
     const onClickStar = (star: number) => {
         setIsVisible(true);
         setStarRating(star);
     };
     const onSubmit = () => {
         if (starRating) onAccept?.(starRating, review);
+        setIsVisible(false);
     };
 
     return (
         <div>
             <VStack max className={cls.rate}>
-                <Text title={rating ? 'Вы оценили' : 'Выберите рейтинг'} />
-                <Stars size={size} rating={rating} onChangeRate={onClickStar} />
+                <Text title={starRating ? 'Вы оценили' : 'Выберите рейтинг'} />
+                <Stars size={size} rating={starRating} onChangeRate={onClickStar} />
             </VStack>
             <Modal
                 lazy
