@@ -58,6 +58,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
         'farkuy-plugin/puth-checker': ['error', { alias: '@' }],
+        'farkuy-plugin/public-api-imports': ['error', { alias: '@' }],
         'no-plusplus': 'off',
         'react/no-array-index-key': 'off',
     },

@@ -7422,10 +7422,10 @@ eslint-module-utils@^2.7.2:
     debug "^3.2.7"
     find-up "^2.1.0"
 
-eslint-plugin-farkuy-plugin@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.npmjs.org/eslint-plugin-farkuy-plugin/-/eslint-plugin-farkuy-plugin-0.0.5.tgz"
-  integrity sha512-OmdZQMFvQeL/wU669Us1XnBYWvAGUjSFKXrpFdI47KGADeoQJA30Jag6lkeC61XKYS1sb3zzkxlM+MTVQqRfcA==
+eslint-plugin-farkuy-plugin@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.npmjs.org/eslint-plugin-farkuy-plugin/-/eslint-plugin-farkuy-plugin-0.0.6.tgz"
+  integrity sha512-8M29IyyDav8dx51BD0KZcfPwQQGBS8uE6RAbNicki/Xv2cPI5BJjdAfuBo7Nre5dwRGwJKaCeVZFuyOfByVFCg==
   dependencies:
     requireindex "^1.2.0"
 

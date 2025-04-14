@@ -1,5 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo, ReactNode } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import { VirtualList } from '@/features/VirtualList/ui/VirtualList';
 import { Article, ArticleView } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
