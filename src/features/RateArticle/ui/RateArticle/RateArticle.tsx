@@ -1,9 +1,8 @@
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { use } from 'i18next';
 import { RateModal } from '@/entities/Rate';
 import { getUser } from '@/entities/User';
-import { useGetArticleRateQuery, useSetArticleRateMutation, useSetArticleRateQuery } from '../../api/articleRateApi';
+import { useGetArticleRateQuery, useSetArticleRateMutation } from '../../api/articleRateApi';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text } from '@/shared/ui/Text/Text';
 

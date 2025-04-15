@@ -2,7 +2,6 @@ import { memo } from 'react';
 import { IOptions } from '@/shared/ui/Select/Select';
 import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { COUNTRY } from '../model/types';
-import cls from './CountrySelect.module.scss';
 
 interface CountrySelectProps {
     className?: string;
