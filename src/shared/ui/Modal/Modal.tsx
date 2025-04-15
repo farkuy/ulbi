@@ -1,7 +1,7 @@
 import {
     FC, ReactNode, useCallback, useEffect,
 } from 'react';
-import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib';
 import { Portal } from '@/shared/ui/Portal/Portal';
 import cls from './Modal.module.scss';
 

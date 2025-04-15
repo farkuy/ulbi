@@ -1,15 +1,13 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
+import { classNames } from '@/shared/lib';
+import { Button, Avatar, Dropdown } from '@/shared/ui';
 import { LoginModal } from '@/features/AuthByUsername';
 import { getUser, userActions } from '@/entities/User';
-import { Dropdown } from '@/shared/ui/Popups/ui/Dropdown/Dropdown';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { ShowNotify } from '@/features/ShowNotify';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/consts';
 
 interface NavbarProps {
     className?: string;

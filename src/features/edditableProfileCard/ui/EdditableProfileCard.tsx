@@ -1,15 +1,13 @@
 import { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useStartEffect } from '@/shared/lib/hooks/useStartEffect/useStartEffect';
+import { useAppDispatch, classNames, useStartEffect } from '@/shared/lib';
 import { CURRENCY } from '@/entities/Currency';
 import { COUNTRY } from '@/entities/Country';
 import { Text, ThemeText } from '@/shared/ui/Text/Text';
 import { ProfileCard, TextPos } from '@/entities/Profile/ui/ProfileCard/ProfileCard';
 import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui';
 import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
 import { getProfileForm } from '../model/selectors/getProfileForm/getProfileForm';
 import { ValidateProfileError } from '../model/types/edditableProfileCard.types';

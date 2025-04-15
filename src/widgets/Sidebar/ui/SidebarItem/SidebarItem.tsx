@@ -1,11 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { AppRoutes, routeConfig } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib';
+import { AppLink, AppLinkTheme } from '@/shared/ui';
 import { getUser } from '@/entities/User';
 import { TSidebarItem } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
+import { routeConfig } from '@/app/providers/router';
+import { AppRoutes } from '@/shared/consts/router';
 
 interface SidebarItemProps {
     item: TSidebarItem;

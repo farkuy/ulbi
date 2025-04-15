@@ -1,8 +1,7 @@
 import {
     ReactNode, useEffect, useMemo, useState,
 } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { classNames, useThrottle } from '@/shared/lib';
 import cls from './VirtualList.module.scss';
 
 interface VirtualListProps {

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui';
 import { Comment } from '../CommentItem/Comment';
 import cls from './CommentList.module.scss';
 import { Comment as CommentUser } from '../../model/types/comment';

@@ -1,7 +1,6 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, useAppDispatch } from '@/shared/lib';
 import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
 import { ArticlePageFilter } from '@/features/ArticlePageFilter';
 import { ArticlesInfiniteList } from './ArticlesInfiniteList/ArticlesInfiniteList';

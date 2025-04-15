@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { ArticleDetails } from '@/entities/Article';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import { DynamicModuleReducer, ReducersList } from '@/shared/lib/components/DynamicModuleReducer';
 import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
 import { ArticleRecomend } from '@/features/ArticleRecomend';

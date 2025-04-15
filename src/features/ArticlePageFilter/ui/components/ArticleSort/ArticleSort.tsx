@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import { IOptions, Select } from '@/shared/ui/Select/Select';
 import { SortOrder } from '@/shared/types/sort';
 import { ArticlesSort } from '@/pages/ArticlesPage/model/types/articlesPage';

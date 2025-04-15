@@ -1,12 +1,12 @@
 import { FC, useState } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import cls from './RateModal.module.scss';
 import { Modal } from '@/shared/ui/Modal/Modal';
 import { Stars, StarsProps } from '@/shared/ui/Stars/Stars';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text/Text';
 import { Input } from '@/shared/ui/Input/Input';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui';
 
 interface RateModalProps extends StarsProps{
     className?: string;

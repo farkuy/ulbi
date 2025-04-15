@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleList, ArticleView } from '@/entities/Article';
 import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui';
 import { useGetRecommendQuery } from '../api/articleRecomendApi';
 
 interface ArticleRecomendProps {

@@ -1,10 +1,9 @@
 import { FC, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, useAppDispatch } from '@/shared/lib';
 import { ArticleView } from '@/entities/Article';
 import { articlesAction } from '@/pages/ArticlesPage/model/slice/articlesPageslice';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ToggleArticlesView } from '@/features/ToggleArticlesView';
 import {
     getArticlesOrder, getArticlesSearch, getArticlesSort, getArticlesView,

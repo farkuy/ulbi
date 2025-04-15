@@ -1,6 +1,6 @@
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib';
 import { PageWrapper } from '@/widgets/PageWrapper/PageWrapper';
 import cls from './AdminPage.module.scss';
 
